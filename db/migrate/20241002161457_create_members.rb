@@ -1,6 +1,6 @@
 class CreateMembers < ActiveRecord::Migration[7.1]
   def change
-    create_table :members do |t|
+    create_table :members, id: :uuid do |t|
       t.string :status
       t.references :circle, type: :uuid, null: false, foreign_key: true
 
