@@ -18,13 +18,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_02_161457) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "members", force: :cascade do |t|
-    t.string "status"
-    t.integer "circle_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["circle_id"], name: "index_members_on_circle_id"
-  end
+# Could not dump table "members" because of following StandardError
+#   Unknown type 'uuid' for column 'circle_id'
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
