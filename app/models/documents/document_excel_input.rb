@@ -1,0 +1,2 @@
+class DocumentExcelInput < ApplicationRecord
+end

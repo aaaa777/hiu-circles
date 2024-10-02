@@ -6,4 +6,7 @@ class Circle < ApplicationRecord
   }
 
   has_many :members
+  has_many :request_types
+  has_many :abstract_requests
+  has_many :enabled_request_types
 end

@@ -10,6 +10,8 @@ class Member < ApplicationRecord
 
   belongs_to :user
   belongs_to :circle
+  has_many :abstract_request_applicants, class_name: 'AbstractRequest', foreign_key: 'applicant_id'
+  has_many :abstract_request_approvers, class_name: 'AbstractRequest', foreign_key: 'approver_id'
 
   validates :circle_id, presence: true
 end

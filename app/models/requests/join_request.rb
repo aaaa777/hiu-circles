@@ -1,2 +1,0 @@
-class JoinRequest < AbstractRequest
-end
