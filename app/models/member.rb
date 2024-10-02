@@ -7,7 +7,6 @@ class Member < ApplicationRecord
     left: 'left',
     other: 'other'
   }
-  timestamps
 
   belongs_to :user
   belongs_to :circle

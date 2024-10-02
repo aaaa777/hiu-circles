@@ -4,7 +4,6 @@ class Circle < ApplicationRecord
     active: 'active',
     inactive: 'inactive'
   }
-  timestamps
 
   has_many :members
 end
