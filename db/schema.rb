@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_03_014317) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_03_044357) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -31,6 +31,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_03_014317) do
     t.index ["author_id"], name: "index_circle_logs_on_author_id"
     t.index ["circle_id"], name: "index_circle_logs_on_circle_id"
     t.index ["target_member_id"], name: "index_circle_logs_on_target_member_id"
+  end
+
+  create_table "circle_roles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "circles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -77,13 +83,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_03_014317) do
     t.index ["request_type_id"], name: "index_enabled_request_types_on_request_type_id"
   end
 
-  create_table "member_role_relations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "member_circle_role_relations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "member_id", null: false
-    t.uuid "role_id", null: false
+    t.uuid "circle_role_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["member_id"], name: "index_member_role_relations_on_member_id"
-    t.index ["role_id"], name: "index_member_role_relations_on_role_id"
+    t.index ["circle_role_id"], name: "index_member_circle_role_relations_on_circle_role_id"
+    t.index ["member_id"], name: "index_member_circle_role_relations_on_member_id"
   end
 
   create_table "members", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
@@ -154,6 +160,15 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_03_014317) do
     t.index ["url"], name: "index_shortened_urls_on_url"
   end
 
+  create_table "user_role_relations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.uuid "role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.uuid "user_id", null: false
+    t.index ["role_id"], name: "index_user_role_relations_on_role_id"
+    t.index ["user_id"], name: "index_user_role_relations_on_user_id"
+  end
+
   create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -191,8 +206,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_03_014317) do
   add_foreign_key "documents", "document_types"
   add_foreign_key "enabled_request_types", "circles"
   add_foreign_key "enabled_request_types", "request_types"
-  add_foreign_key "member_role_relations", "members"
-  add_foreign_key "member_role_relations", "roles"
+  add_foreign_key "member_circle_role_relations", "circle_roles"
+  add_foreign_key "member_circle_role_relations", "members"
   add_foreign_key "members", "circles"
   add_foreign_key "request_types", "circles"
   add_foreign_key "requests", "circles"
@@ -200,4 +215,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_03_014317) do
   add_foreign_key "requests", "members", column: "approver_id"
   add_foreign_key "requests", "request_types"
   add_foreign_key "roles", "circles"
+  add_foreign_key "user_role_relations", "roles"
+  add_foreign_key "user_role_relations", "users"
 end

@@ -1,4 +1,3 @@
 class CircleLogType < ApplicationRecord
-  string :name
-  string :message
+  has_many :circle_logs
 end

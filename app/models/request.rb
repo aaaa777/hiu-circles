@@ -1,10 +1,9 @@
-class AbstractRequest < ApplicationRecord
+class Request < ApplicationRecord
   enum :status, {
     pending: 'pending',
     approved: 'approved',
     rejected: 'rejected',
   }
-  string :note
 
   belongs_to :circle
   belongs_to :request_type

@@ -6,4 +6,6 @@ class User < ApplicationRecord
          :confirmable, :lockable, :trackable
 
   has_many :members
+  has_many :user_role_relations
+  has_many :roles, through: :user_role_relations
 end

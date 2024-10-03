@@ -23,8 +23,10 @@ production:
   <<: *default
   # database: db/production.sqlite3 変更
   database: circlehub_production
-  username: <%= ENV['PG_DATABASE_USERNAME'] %>
-  password: <%= ENV['PG_DATABASE_PASSWORD'] %>
+  username: username
+  password: password
+  # username: <%= ENV['PG_DATABASE_USERNAME'] %>
+  # password: <%= ENV['PG_DATABASE_PASSWORD'] %>
 
 # 参考
 # create USER username with password 'password';
