@@ -28,5 +28,17 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
+
+    if user.blank? # not logged in
+      can :read, :static_pages
+    elsif user.site_admin?
+      can :manage, :all
+    elsif user.circle_admin?
+      can :manage, :all
+    elsif user.member?
+      can :read, :all
+    else # other circle members
+      can :read, :static_pages
+    end
   end
 end
