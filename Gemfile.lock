@@ -239,6 +239,8 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    shortener (1.0.1)
+      voight_kampff (~> 2.0)
     sprockets (4.2.1)
       concurrent-ruby (~> 1.0)
       rack (>= 2.2.4, < 4)
@@ -262,6 +264,8 @@ GEM
       tzinfo (>= 1.0.0)
     uuid7 (0.2.0)
       zeitwerk (~> 2.4)
+    voight_kampff (2.0.0)
+      rack (>= 1.4)
     warden (1.2.9)
       rack (>= 2.0.9)
     web-console (4.2.1)
@@ -297,6 +301,7 @@ DEPENDENCIES
   rails (~> 7.1.3, >= 7.1.3.4)
   rspec-rails
   selenium-webdriver
+  shortener
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails
