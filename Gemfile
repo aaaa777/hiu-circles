@@ -49,6 +49,9 @@ gem 'devise'
 gem 'uuid7'
 gem 'cancancan'
 gem 'shortener'
+gem 'slim-rails'
+gem 'html2slim'
+gem 'hpricot', '0.8.6'
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
