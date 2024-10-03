@@ -25,3 +25,12 @@ module HiuCircles
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
+
+# monkey patch to fix the issue with the timestamped migrations
+# https://qiita.com/mochimochifarao/items/a836665645e66ab65105
+# still not fixed in Rails 7.1.3
+# https://github.com/jpmcgrath/shortener/pull/165
+class ActiveRecord::Base
+  singleton_class.attr_accessor :timestamped_migrations
+  self.timestamped_migrations = true
+end
