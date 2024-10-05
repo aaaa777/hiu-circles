@@ -1,0 +1,56 @@
+.hold-transition.register-page
+  .register-box
+    .card.card-outline.card-primary
+      .card-header.text-center
+        a.h1[href="../../index2.html"]
+          b
+            | Admin
+          | LTE
+      .card-body
+        p.login-box-msg
+          | Register a new membership
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .input-group.mb-3
+            input.form-control[type="text" placeholder="Full name"]
+            .input-group-append
+              .input-group-text
+
+          span.fas.fa-user
+  .input-group.mb-3
+    = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "Email"
+    .input-group-append
+      .input-group-text
+        span.fas.fa-envelope
+  .input-group.mb-3
+    = f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "Password"
+    .input-group-append
+      .input-group-text
+        span.fas.fa-lock
+  .input-group.mb-3
+    = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "Retype password"
+    .input-group-append
+      .input-group-text
+        span.fas.fa-lock
+  .row
+    .col-8
+      .icheck-primary
+        input#agreeTerms[type="checkbox" name="terms" value="agree"]
+        label[for="agreeTerms"]
+          |  I agree to the 
+          a[href="#"]
+            | terms
+    .col-4
+      = f.submit "Register", class: "btn btn-primary btn-block"
+  .social-auth-links.text-center
+    a.btn.btn-block.btn-primary[href="#"]
+      i.fab.fa-facebook.mr-2
+      |  Sign up using Facebook 
+    a.btn.btn-block.btn-danger[href="#"]
+      i.fab.fa-google-plus.mr-2
+      |  Sign up using Google+ 
+  a.text-center[href="login.html"]
+    | I already have a membership
+script[src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"]
+script[src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha256-fgLAgv7fyCGopR/gBNq2iW3ZKIdqIcyshnUULC4vex8=" crossorigin="anonymous"]
+script[src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js" integrity="sha256-u2yoem2HtOCQCnsp3fO9sj5kUrL+7hOAfm8es18AFjw=" crossorigin="anonymous"]

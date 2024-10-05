@@ -22,3 +22,11 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+
+# notes
+
+- form_withを上位のdivごとパーツ化して、エラー時にエラー項目を赤く縁取る
+
+
+

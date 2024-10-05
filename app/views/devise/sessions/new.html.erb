@@ -24,3 +24,103 @@
 <% end %>
 
 <%= render "devise/shared/links" %>
+
+
+<div class="login-page bg-body-secondary">
+    <div class="login-box">
+        <div class="card card-outline card-primary">
+            <div class="card-header"> <a href="../index2.html" class="link-dark text-center link-offset-2 link-opacity-100 link-opacity-50-hover">
+                    <h1 class="mb-0"> <b>Admin</b>LTE
+                    </h1>
+                </a> </div>
+            <div class="card-body login-card-body">
+                <p class="login-box-msg">Sign in to start your session</p>
+                <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+                  <%= render "devise/shared/error_messages", resource: resource %>
+                
+                  <div class="input-group mb-1">
+                    <%= f.label :email %><br />
+                    
+                    <div class="form-floating">
+                      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "loginEmail" %> <label for="loginEmail">Email</label>
+                    </div>
+                    <div class="input-group-text"> <span class="bi bi-envelope"></span> </div>
+                  </div>
+                
+                  <div class="field mb-5">
+                    <%= f.label :password %>
+                    <% if @minimum_password_length %>
+                    <em>(<%= @minimum_password_length %> characters minimum)</em>
+                    <% end %><br />
+                    <%= f.password_field :password, autocomplete: "new-password" %>
+                  </div>
+                
+                  <div class="field">
+                    <%= f.label :password_confirmation %><br />
+                    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+                  </div>
+                
+                  <div class="actions">
+                    <%= f.submit "Sign up" %>
+                  </div>
+                <% end %>
+
+                <form action="../index3.html" method="post">
+
+                    <div class="input-group mb-1">
+                        <div class="form-floating"> <input id="loginPassword" type="password" class="form-control" placeholder=""> <label for="loginPassword">Password</label> </div>
+                        <div class="input-group-text"> <span class="bi bi-lock-fill"></span> </div>
+                    </div> <!--begin::Row-->
+                    <div class="row">
+                        <div class="col-8 d-inline-flex align-items-center">
+                            <div class="form-check"> <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault"> <label class="form-check-label" for="flexCheckDefault">
+                                    Remember Me
+                                </label> </div>
+                        </div>
+                        <div class="col-4">
+                            <div class="d-grid gap-2"> <button type="submit" class="btn btn-primary">Sign In</button> </div>
+                        </div>
+                    </div>
+                </form>
+                <div class="social-auth-links text-center mb-3 d-grid gap-2">
+                    <p>- OR -</p> <a href="#" class="btn btn-primary"> <i class="bi bi-facebook me-2"></i> Sign in using Facebook
+                    </a> <a href="#" class="btn btn-danger"> <i class="bi bi-google me-2"></i> Sign in using Google+
+                    </a>
+                </div> <!-- /.social-auth-links -->
+                <p class="mb-1"> <a href="forgot-password.html">I forgot my password</a> </p>
+                <p class="mb-0"> <a href="register.html" class="text-center">
+                        Register a new membership
+                    </a> </p>
+
+                <%= render "devise/shared/links" %>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/admin-lte@4.0.0-beta2/dist/js/adminlte.min.js" integrity="sha256-x5Mj2wYeSa9WVOK+EK8Z5rmXHFZ+MOY8r4eW8AKzpXU=" crossorigin="anonymous"></script>
+    <script>
+        const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper";
+        const Default = {
+            scrollbarTheme: "os-theme-light",
+            scrollbarAutoHide: "leave",
+            scrollbarClickScroll: true,
+        };
+        document.addEventListener("DOMContentLoaded", function() {
+            const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER);
+            if (
+                sidebarWrapper &&
+                typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined"
+            ) {
+                OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, {
+                    scrollbars: {
+                        theme: Default.scrollbarTheme,
+                        autoHide: Default.scrollbarAutoHide,
+                        clickScroll: Default.scrollbarClickScroll,
+                    },
+                });
+            }
+        });
+    </script>
+</div>

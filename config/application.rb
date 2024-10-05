@@ -23,6 +23,7 @@ module HiuCircles
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+    config.action_view.field_error_proc = Proc.new { |html_tag, instance| %(#{html_tag}).html_safe }
   end
 end
 

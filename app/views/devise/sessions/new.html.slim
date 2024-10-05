@@ -1,0 +1,96 @@
+h2
+  | Log in
+= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .field
+    = f.label :email
+    br
+    = f.email_field :email, autofocus: true, autocomplete: "email"
+  .field
+    = f.label :password
+    br
+    = f.password_field :password, autocomplete: "current-password"
+  - if devise_mapping.rememberable?
+    .field
+      = f.check_box :remember_me
+      = f.label :remember_me
+  .actions
+    = f.submit "Log in"
+= render "devise/shared/links"
+.login-page.bg-body-secondary
+  .login-box
+    .card.card-outline.card-primary
+      .card-header
+        a.link-dark.text-center.link-offset-2.link-opacity-100.link-opacity-50-hover[href="../index2.html"]
+          h1.mb-0
+            b
+              | Admin
+            | LTE 
+      .card-body.login-card-body
+        p.login-box-msg
+          | Sign in to start your session
+        = form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+          = render "devise/shared/error_messages", resource: resource
+          .input-group.mb-1
+            = f.label :email
+            br
+            .form-floating
+              = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "loginEmail"
+          label[for="loginEmail"]
+            | Email
+      .input-group-text
+        span.bi.bi-envelope
+    .field.mb-5
+      = f.label :password
+      - if @minimum_password_length
+        em
+          | (
+          = @minimum_password_length
+          |  characters minimum)
+      br
+      = f.password_field :password, autocomplete: "new-password"
+    .field
+      = f.label :password_confirmation
+      br
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+    .actions
+      = f.submit "Sign up"
+    form[action="../index3.html" method="post"]
+      .input-group.mb-1
+        .form-floating
+          input#loginPassword.form-control[type="password" placeholder=""]
+          label[for="loginPassword"]
+            | Password
+        .input-group-text
+          span.bi.bi-lock-fill
+      .row
+        .col-8.d-inline-flex.align-items-center
+          .form-check
+            input#flexCheckDefault.form-check-input[type="checkbox" value=""]
+            label.form-check-label[for="flexCheckDefault"]
+              |  Remember Me 
+        .col-4
+          .d-grid.gap-2
+            button.btn.btn-primary[type="submit"]
+              | Sign In
+    .social-auth-links.text-center.mb-3.d-grid.gap-2
+      p
+        | - OR -
+      a.btn.btn-primary[href="#"]
+        i.bi.bi-facebook.me-2
+        |  Sign in using Facebook 
+      a.btn.btn-danger[href="#"]
+        i.bi.bi-google.me-2
+        |  Sign in using Google+ 
+    p.mb-1
+      a[href="forgot-password.html"]
+        | I forgot my password
+    p.mb-0
+      a.text-center[href="register.html"]
+        |  Register a new membership 
+    = render "devise/shared/links"
+script[src="https://cdn.jsdelivr.net/npm/overlayscrollbars@2.3.0/browser/overlayscrollbars.browser.es6.min.js" integrity="sha256-H2VM7BKda+v2Z4+DRy69uknwxjyDRhszjXFhsL4gD3w=" crossorigin="anonymous"]
+script[src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha256-whL0tQWoY1Ku1iskqPFvmZ+CHsvmRWx/PIoEvIeWh4I=" crossorigin="anonymous"]
+script[src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js" integrity="sha256-YMa+wAM6QkVyz999odX7lPRxkoYAan8suedu4k2Zur8=" crossorigin="anonymous"]
+script[src="https://cdn.jsdelivr.net/npm/admin-lte@4.0.0-beta2/dist/js/adminlte.min.js" integrity="sha256-x5Mj2wYeSa9WVOK+EK8Z5rmXHFZ+MOY8r4eW8AKzpXU=" crossorigin="anonymous"]
+script
+  |  const SELECTOR_SIDEBAR_WRAPPER = ".sidebar-wrapper"; const Default = { scrollbarTheme: "os-theme-light", scrollbarAutoHide: "leave", scrollbarClickScroll: true, }; document.addEventListener("DOMContentLoaded", function() { const sidebarWrapper = document.querySelector(SELECTOR_SIDEBAR_WRAPPER); if ( sidebarWrapper && typeof OverlayScrollbarsGlobal?.OverlayScrollbars !== "undefined" ) { OverlayScrollbarsGlobal.OverlayScrollbars(sidebarWrapper, { scrollbars: { theme: Default.scrollbarTheme, autoHide: Default.scrollbarAutoHide, clickScroll: Default.scrollbarClickScroll, }, }); } }); 
