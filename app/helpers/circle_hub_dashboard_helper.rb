@@ -1,0 +1,2 @@
+module CircleHubDashboardHelper
+end

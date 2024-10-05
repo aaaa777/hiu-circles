@@ -1,0 +1,2 @@
+module LoginRequiredAreaHelper
+end

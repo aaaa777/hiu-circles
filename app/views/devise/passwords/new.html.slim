@@ -1,11 +1,24 @@
-h2
-  | Forgot your password?
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
+= render "devise/shared/login_form", description: "パスワードリセット" 
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f|
+    = render "devise/shared/error_messages", resource: resource
     = f.label :email
-    br
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Send me reset password instructions"
-= render "devise/shared/links"
+    .input-group.mb-3
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "sXXXXXXX@s.do-johodai.ac.jp"
+      .input-group-append
+        .input-group-text
+          span.fas.fa-lock
+    / = f.label :password
+    / .input-group.mb-3
+    /   = f.password_field :password, autocomplete: "new-password", class: "form-control", placeholder: "パスワード"
+    /   .input-group-append
+    /     .input-group-text
+    /       span.fas.fa-lock
+    / = f.label :password_confirmation
+    / .input-group.mb-3
+    /   = f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control", placeholder: "パスワード(再入力)"
+    /   .input-group-append
+    /     .input-group-text
+    /       span.fas.fa-lock
+    .row
+      .col-12
+        = f.submit "パスワードリセット", class: "btn btn-primary btn-block"

@@ -1,10 +1,17 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
-  get 'static_pages/help'
+  # get 'static_pages/home'
+  # get 'static_pages/help'
   devise_for :users
-  
-  namespace :circle_hub do
-    resources :circles
+
+  root to: 'static_pages#home'
+
+  scope :circle_hub do
+    root to: 'static_pages#home', as: :circle_hub_root
+    resources :circles do
+      resources :dashboard do 
+        
+      end
+    end
   end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

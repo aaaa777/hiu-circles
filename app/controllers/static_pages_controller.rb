@@ -4,4 +4,8 @@ class StaticPagesController < ApplicationController
 
   def help
   end
+
+  def routes
+    @routes = Rails.application.routes.routes
+  end
 end

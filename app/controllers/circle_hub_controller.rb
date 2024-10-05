@@ -1,0 +1,3 @@
+class CircleHubController < ApplicationController
+  
+end
