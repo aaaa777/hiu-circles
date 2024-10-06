@@ -1,0 +1,194 @@
+p sample page
+.content-header
+  .container-fluid
+    .row.mb-2
+      .col-sm-6
+        h1.m-0
+          | Dashboard v3
+      .col-sm-6
+        ol.breadcrumb.float-sm-right
+          li.breadcrumb-item
+            a[href="#"]
+              | Home
+          li.breadcrumb-item.active
+            | Dashboard v3
+.content
+  .container-fluid
+    .row
+      .col-lg-6
+        .card
+          .card-header.border-0
+            .d-flex.justify-content-between
+              h3.card-title
+                | Online Store Visitors
+              a[href="javascript:void(0);"]
+                | View Report
+          .card-body
+            .d-flex
+              p.d-flex.flex-column
+                span.text-bold.text-lg
+                  | 820
+                span
+                  | Visitors Over Time
+              p.ml-auto.d-flex.flex-column.text-right
+                span.text-success
+                  i.fas.fa-arrow-up
+                  |  12.5% 
+                span.text-muted
+                  | Since last week
+            .position-relative.mb-4
+              canvas#visitors-chart[height="200"]
+            .d-flex.flex-row.justify-content-end
+              span.mr-2
+                i.fas.fa-square.text-primary
+                |  This Week 
+              span
+                i.fas.fa-square.text-gray
+                |  Last Week 
+        .card
+          .card-header.border-0
+            h3.card-title
+              | Products
+            .card-tools
+              a.btn.btn-tool.btn-sm[href="#"]
+                i.fas.fa-download
+              a.btn.btn-tool.btn-sm[href="#"]
+                i.fas.fa-bars
+          .card-body.table-responsive.p-0
+            table.table.table-striped.table-valign-middle
+              thead
+                tr
+                  th
+                    | Product
+                  th
+                    | Price
+                  th
+                    | Sales
+                  th
+                    | More
+              tbody
+                tr
+                  td
+                    img.img-circle.img-size-32.mr-2[src="dist/img/default-150x150.png" alt="Product 1"]
+                    |  Some Product 
+                  td
+                    | $13 USD
+                  td
+                    small.text-success.mr-1
+                      i.fas.fa-arrow-up
+                      |  12% 
+                    |  12,000 Sold 
+                  td
+                    a.text-muted[href="#"]
+                      i.fas.fa-search
+                tr
+                  td
+                    img.img-circle.img-size-32.mr-2[src="dist/img/default-150x150.png" alt="Product 1"]
+                    |  Another Product 
+                  td
+                    | $29 USD
+                  td
+                    small.text-warning.mr-1
+                      i.fas.fa-arrow-down
+                      |  0.5% 
+                    |  123,234 Sold 
+                  td
+                    a.text-muted[href="#"]
+                      i.fas.fa-search
+                tr
+                  td
+                    img.img-circle.img-size-32.mr-2[src="dist/img/default-150x150.png" alt="Product 1"]
+                    |  Amazing Product 
+                  td
+                    | $1,230 USD
+                  td
+                    small.text-danger.mr-1
+                      i.fas.fa-arrow-down
+                      |  3% 
+                    |  198 Sold 
+                  td
+                    a.text-muted[href="#"]
+                      i.fas.fa-search
+                tr
+                  td
+                    img.img-circle.img-size-32.mr-2[src="dist/img/default-150x150.png" alt="Product 1"]
+                    |  Perfect Item 
+                    span.badge.bg-danger
+                      | NEW
+                  td
+                    | $199 USD
+                  td
+                    small.text-success.mr-1
+                      i.fas.fa-arrow-up
+                      |  63% 
+                    |  87 Sold 
+                  td
+                    a.text-muted[href="#"]
+                      i.fas.fa-search
+      .col-lg-6
+        .card
+          .card-header.border-0
+            .d-flex.justify-content-between
+              h3.card-title
+                | Sales
+              a[href="javascript:void(0);"]
+                | View Report
+          .card-body
+            .d-flex
+              p.d-flex.flex-column
+                span.text-bold.text-lg
+                  | $18,230.00
+                span
+                  | Sales Over Time
+              p.ml-auto.d-flex.flex-column.text-right
+                span.text-success
+                  i.fas.fa-arrow-up
+                  |  33.1% 
+                span.text-muted
+                  | Since last month
+            .position-relative.mb-4
+              canvas#sales-chart[height="200"]
+            .d-flex.flex-row.justify-content-end
+              span.mr-2
+                i.fas.fa-square.text-primary
+                |  This year 
+              span
+                i.fas.fa-square.text-gray
+                |  Last year 
+        .card
+          .card-header.border-0
+            h3.card-title
+              | Online Store Overview
+            .card-tools
+              a.btn.btn-sm.btn-tool[href="#"]
+                i.fas.fa-download
+              a.btn.btn-sm.btn-tool[href="#"]
+                i.fas.fa-bars
+          .card-body
+            .d-flex.justify-content-between.align-items-center.border-bottom.mb-3
+              p.text-success.text-xl
+                i.ion.ion-ios-refresh-empty
+              p.d-flex.flex-column.text-right
+                span.font-weight-bold
+                  i.ion.ion-android-arrow-up.text-success
+                  |  12% 
+                span.text-muted
+                  | CONVERSION RATE
+            .d-flex.justify-content-between.align-items-center.border-bottom.mb-3
+              p.text-warning.text-xl
+                i.ion.ion-ios-cart-outline
+              p.d-flex.flex-column.text-right
+                span.font-weight-bold
+                  i.ion.ion-android-arrow-up.text-warning
+                  |  0.8% 
+                span.text-muted
+                  | SALES RATE
+            .d-flex.justify-content-between.align-items-center.mb-0
+              p.text-danger.text-xl
+                i.ion.ion-ios-people-outline
+              p.d-flex.flex-column.text-right
+                span.font-weight-bold
+                  i.ion.ion-android-arrow-down.text-danger
+                  |  1% 
+                span.text-muted
+                  | REGISTRATION RATE

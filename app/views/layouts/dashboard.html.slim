@@ -1,0 +1,26 @@
+doctype html
+html[lang="en"]
+  head
+    meta[charset="utf-8"]
+    meta[name="viewport" content="width=device-width, initial-scale=1"]
+    title
+      | AdminLTE 3 | Dashboard 3
+    link[rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback"]
+    link[rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/all.min.css" integrity="sha256-5eIC48iZUHmSlSUz9XtjRyK2mzQkHScZY1WdMaoz74E=" crossorigin="anonymous"]
+    link[rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css"]
+    link[rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/css/adminlte.css" integrity="sha256-+Z1c73BER/9o+mtH5k7vPG6RrVHOHw49AG1WHoG4s0o=" crossorigin="anonymous"]
+  body.hold-transition.sidebar-mini
+    .wrapper
+      = render 'layouts/dashboard/header'
+      = render 'layouts/dashboard/sidebar_left'
+      .content-wrapper
+        = yield
+      = render 'layouts/dashboard/sidebar_right'
+
+      = render 'layouts/dashboard/footer'
+
+    script[src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"]
+    script[src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha256-fgLAgv7fyCGopR/gBNq2iW3ZKIdqIcyshnUULC4vex8=" crossorigin="anonymous"]
+    script[src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/adminlte.min.js" integrity="sha256-u2yoem2HtOCQCnsp3fO9sj5kUrL+7hOAfm8es18AFjw=" crossorigin="anonymous"]
+    script[src="https://cdn.jsdelivr.net/npm/admin-lte@3.2.0/dist/js/pages/dashboard3.js"]
+    script[src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"]

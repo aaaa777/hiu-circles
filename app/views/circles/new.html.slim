@@ -1,4 +1,21 @@
-h1 StaticPages#home
-p Find me in app/views/static_pages/home.html.slim
-p 非公認団体作成ページ
-
+= render 'layouts/shared/form', title: 'Circle-Hub', title_link: circles_path, description: 'Circle-Hubに団体を作成します。'
+  - if @circle.errors.any?
+    ul
+      - @circle.errors.full_messages.each do |message|
+        li = message
+  = form_with model: @circle, method: :post, url: circles_path do |f|
+    = f.label :name
+    .input-group.mb-3
+      = f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", placeholder: "団体名"
+      .input-group-append
+        .input-group-text
+          span.fas.fa-envelope
+    = f.label :description
+    .input-group.mb-3
+      = f.text_field :description, autofocus: true, autocomplete: "description", class: "form-control", placeholder: "団体の説明"
+      .input-group-append
+        .input-group-text
+          span.fas.fa-envelope
+    .row
+      .col-12
+        = f.submit '団体を作成', class: 'btn btn-primary btn-block'

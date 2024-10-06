@@ -10,4 +10,19 @@ class CirclesController < CircleHubController
   def new
     @circle = Circle.new
   end
+
+  def create
+    @circle = Circle.new(circle_params)
+    if @circle.save
+      redirect_to @circle
+    else
+      render :new
+    end
+  end
+
+  private
+
+  def circle_params
+    params.require(:circle).permit(:name)
+  end
 end

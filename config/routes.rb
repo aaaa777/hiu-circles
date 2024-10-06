@@ -8,10 +8,17 @@ Rails.application.routes.draw do
   scope :circle_hub do
     root to: 'static_pages#home', as: :circle_hub_root
     resources :circles do
-      resources :dashboard do 
-        
+      member do
+        resource :circle_dashboard, only: [] do
+          get :index, action: :index
+          get :member_list, action: :member_list
+        end
       end
     end
+  end
+
+  scope :admin_hub do
+    resources :dashboard
   end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

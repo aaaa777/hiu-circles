@@ -1,0 +1,53 @@
+aside.main-sidebar.sidebar-dark-primary.elevation-4
+  a.brand-link[href="index3.html"]
+    / img.brand-image.img-circle.elevation-3[src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" style="opacity: .8"]
+    .container
+      span.brand-text.font-weight-light
+        p.text-center.m-0
+          = @sidebar_left_title
+  .sidebar
+    .user-panel.mt-3.pb-3.mb-3.d-flex
+      /.image
+        img.img-circle.elevation-2[src="dist/img/user2-160x160.jpg" alt="User Image"]
+      a.d-block[href="#"]
+        .container
+          = @sidebar_left_subtitle
+    .form-inline
+      .input-group[data-widget="sidebar-search"]
+
+        input.form-control.form-control-sidebar[type="search" placeholder="Search" aria-label="Search"]
+        .input-group-append
+          button.btn.btn-sidebar
+            i.fas.fa-search.fa-fw
+    nav.mt-2
+      ul.nav.nav-pills.nav-sidebar.flex-column[data-widget="treeview" role="menu" data-accordion="false"]
+        - @sidebar_left_items.each do |item|
+          - case item[:type]
+          - when :link
+            li.nav-item
+              a.nav-link[href=item[:url] class=(item[:active] ? 'active' : '')]
+                i.nav-icon.fas[class=item[:icon]]
+                p
+                  = item[:name]
+          - when :section
+            li.nav-header
+              = item[:name]
+          - when :dropdown
+            - is_active = !!item[:items].find{_1[:active]}
+            li.nav-item[class=(is_active ? 'menu-open' : '')]
+              a.nav-link[class=(is_active ? 'active' : '')]
+                i.nav-icon.fas[class=item[:icon]]
+                p
+                  = item[:name]
+                i.right.fas.fa-angle-left
+              ul.nav.nav-treeview
+                - item[:items].each do |subitem|
+                  li.nav-item
+                    a.nav-link[href=subitem[:url] class=(subitem[:active] ? 'active' : '')]
+                      i.far.nav-icon[class=(subitem[:icon] || 'fa-circle')]
+                      p
+                        = subitem[:name]
+          - else
+            li.nav-item
+              = "#{item[:name]}に:typeが設定されていません"
+          
