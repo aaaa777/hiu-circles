@@ -1,11 +1,15 @@
 class Member < ApplicationRecord
   enum status: {
-    pending_to_join: 'pending_to_join',
-    canceled_to_join: 'canceled_to_join',
+    invited: 'invited',
     provisionally_joined: 'provisionally_joined',
     joined: 'joined',
     left: 'left',
-    other: 'other'
+    user_defined_other: 'user_defined_other',
+
+    # pending_to_join: 'pending_to_join',
+    # canceled_to_join: 'canceled_to_join',
+    # inviting_to_join: 'inviting_to_join',
+    # inviting_to_join_provisionally: 'inviting_to_join_provisionally',
   }
 
   belongs_to :user
