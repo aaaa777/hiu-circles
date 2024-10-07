@@ -27,10 +27,11 @@ class RequestsController < ApplicationController
   def create
     @circle = Circle.find(params[:id])
     @request = Request.new(request_params)
+    debugger
     if @request.save
       redirect_to root_path, notice: "リクエストを送信しました"
     else
-      @request_type = RequestType.find_by(id: @request.request_type_id)
+      @request_type = @request.request_type
       flash.now[:alert] = "リクエストの送信に失敗しました"
       render :new, params: { request_type_id: @request.request_type_id }
     end

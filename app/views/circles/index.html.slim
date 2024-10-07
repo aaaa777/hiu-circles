@@ -2,6 +2,10 @@ h1 StaticPages#home
 p Find me in app/views/static_pages/home.html.slim
 p サークル概要ページ
 
+h2 サークル新規作成
+= link_to 'サークル新規作成', new_circle_path
+
+h2 サークル名
 - @circles.each do |circle|
   a[href=circle_path(circle)]
     = circle.name

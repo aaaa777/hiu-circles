@@ -1,0 +1,7 @@
+h1 StaticPages#hiu_hub
+
+= button_to "新規登録", new_user_registration_path, method: :get, class: "btn btn-primary"
+= button_to "ログアウト", destroy_user_session_path, method: :delete, class: "btn btn-danger"
+
+h2 サークル概要ページ
+= link_to 'サークル概要ページ', circles_path

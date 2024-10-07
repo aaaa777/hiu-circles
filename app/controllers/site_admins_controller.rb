@@ -1,0 +1,2 @@
+class SiteAdminController < DashboardsController
+end

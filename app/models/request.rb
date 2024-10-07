@@ -7,6 +7,6 @@ class Request < ApplicationRecord
 
   belongs_to :circle
   belongs_to :request_type
-  belongs_to :applicant, class_name: 'Member'
-  belongs_to :approver, class_name: 'Member'
+  belongs_to :applicant, class_name: 'User', optional: true
+  belongs_to :approver, class_name: 'User', optional: true
 end

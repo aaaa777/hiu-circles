@@ -6,16 +6,16 @@
   = form_with model: @circle, method: :post, url: circles_path do |f|
     = f.label :name
     .input-group.mb-3
-      = f.text_field :name, autofocus: true, autocomplete: "name", class: "form-control", placeholder: "団体名"
-      .input-group-append
-        .input-group-text
-          span.fas.fa-envelope
+      = f.text_field :name, autofocus: true, class: "form-control", placeholder: "団体名"
+      / .input-group-append
+      /   .input-group-text
+      /     span.fas.fa-signature
     = f.label :description
     .input-group.mb-3
-      = f.text_field :description, autofocus: true, autocomplete: "description", class: "form-control", placeholder: "団体の説明"
-      .input-group-append
-        .input-group-text
-          span.fas.fa-envelope
+      = f.text_area :description, class: "form-control", placeholder: "団体の説明"
+      / .input-group-append
+      /   .input-group-text
+      /     span.fas.fa-envelope
     .row
       .col-12
         = f.submit '団体を作成', class: 'btn btn-primary btn-block'
