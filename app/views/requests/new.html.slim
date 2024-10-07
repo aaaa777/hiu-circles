@@ -1,0 +1,14 @@
+= render 'layouts/form/form', title: "#{@circle.name} #{@request_type.title}", title_link: circles_path, description: @request_type.description
+  = render 'layouts/form/errors', resource: @request
+  = render 'layouts/form/flash_messages'
+  = form_with model: @request do |f|
+    = f.text_field :request_type_id, value: @request_type.id, type: 'hidden'
+    = f.label :note
+    .input-group.mb-3
+      = f.text_area :note, autofocus: true, autocomplete: "note", class: "form-control", placeholder: "特筆事項があれば記入してください"
+      / .input-group-append
+      /   .input-group-text
+      /     span.fas.fa-envelope
+    .row
+      .col-12
+        = f.submit '申請', class: 'btn btn-primary btn-block'

@@ -9,6 +9,35 @@ class CircleDashboardsController < DashboardController
     @members = @circle.members
   end
 
+  def member_show
+  end
+
+  def role_index
+  end
+
+  def role_new
+  end
+
+  def role_edit
+  end
+
+  def request_pending
+  end
+
+  def request_index
+  end
+
+  def notification_setting
+  end
+
+  def template_new
+  end
+
+
+
+  def activity_log
+  end
+
   protected
 
   def load_circle_data
@@ -35,17 +64,50 @@ class CircleDashboardsController < DashboardController
 
   def sidebar_left_items
     [
-      { name: "ダッシュボード", type: :link, url: circle_dashboard_path(@circle), icon: "fa-tachometer-alt", active: match_action?('index') },
-      { name: "管理", type: :section },
-      { name: "メンバー", type: :dropdown, icon: "users", items: [
-        { name: "一覧", url: member_list_circle_dashboard_path(@circle), active: match_action?('member_list') },
-        # { name: "役職", url: circle_roles_circle_dashboard_path(@circle) },
+      { name: "一般", type: :section }, # 一般情報
+      { name: "ダッシュボード", type: :link, action: :index, icon: "fa-tachometer-alt" },
+      { name: "自分の申請", type: :link, action: :index, icon: "fa-user-plus" },
+      { name: "メンバー一覧", type: :link, action: :member_list, alias: [:member_show], icon: "fa-users" },
+      
+      { name: "運用・管理", type: :section }, # 運用者のみが見える情報(ops)
+      { name: "役職", type: :dropdown, icon: "fa-user-tag", items: [
+        { name: "一覧", action: :role_index },
+        { name: "追加", action: :role_new },
+        { name: "編集", action: :role_edit },
       ] },
-      { name: "申請一覧", type: :dropdown, icon: "user-plus", items: [
-        { name: "新規作成", url: '#', active: match_action?('new') },
-        { name: "承認待ち", url: '#', active: match_action?('waiting') },
-      ] }
-    ]
+      { name: "申請", type: :dropdown, icon: "fa-user-plus", items: [
+        { name: "承認待ち", action: :request_pending },
+        { name: "一覧", action: :request_index },
+      ] },
+      { name: "申請テンプレート設定", type: :dropdown, icon: "fa-file", items: [
+        { name: "新規作成", action: :index },
+        { name: "編集", action: :index },
+        { name: "一覧", action: :index },
+      ] },
+      { name: "年度末書類", type: :dropdown, icon: "fa-file", items: [
+        { name: "一括出力", type: :link, action: :index, icon: "fa-file" },
+      ] },
+      { name: "通知設定", type: :link, action: :notification_setting, icon: "fa-bell" },
+      { name: "操作ログ", type: :link, action: :activity_log, icon: "fa-history" },
+      
+      { name: "会計", type: :section }, # 会計担当者のみが見える情報(accounting)
+      { name: "会計ダッシュボード", type: :link, action: :index, icon: "fa-tachometer-alt" },
+      
+      { name: "設定", type: :section }, # サイト管理者のみが見える情報(admin)
+      { name: "全体設定", type: :link, action: :index, icon: "fa-cog" },
+    ].map do |item|
+      if item[:type] == :dropdown
+        item[:items].map! do |sub_item|
+          sub_item.merge!(active: action_name == sub_item[:action].to_s)
+          sub_item.merge(url: send(sub_item[:action].to_s == 'index' ? "circle_dashboard_path" : "#{sub_item[:action].to_s}_circle_dashboard_path", @circle)) if sub_item[:url].nil? && sub_item[:action].present?
+        end
+        item.merge!(active: item[:items].any? { _1[:active] })
+      else
+        item.merge!(url: send(item[:action].to_s == 'index' ? "circle_dashboard_path" : "#{item[:action].to_s}_circle_dashboard_path", @circle)) if item[:url].nil? && item[:action].present?
+        item.merge!(active: action_name == item[:action].to_s)
+      end
+      item
+    end
   end
 
   private

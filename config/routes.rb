@@ -12,7 +12,18 @@ Rails.application.routes.draw do
         resource :circle_dashboard, only: [] do
           get :index, action: :index
           get :member_list, action: :member_list
+          get :member_show, action: :member_show
+          get :role_index, action: :role_index
+          get :role_new, action: :role_new
+          get :role_edit, action: :role_edit
+          get :request_pending, action: :request_pending
+          get :request_index, action: :request_index
+          get :notification_setting, action: :notification_setting
+
+          get :activity_log, action: :activity_log
         end
+
+        resources :requests
       end
     end
   end

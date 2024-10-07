@@ -1,0 +1,5 @@
+= render 'layouts/form/form', title: @circle.name, title_link: circles_path, description: "#{@circle.name}が現在受け付けている申請一覧です"
+  - @request_types.each do |request_type|
+    = link_to request_type.title, new_request_path(@circle, request_type_id: request_type)
+    br
+

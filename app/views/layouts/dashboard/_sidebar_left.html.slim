@@ -33,9 +33,8 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
             li.nav-header
               = item[:name]
           - when :dropdown
-            - is_active = !!item[:items].find{_1[:active]}
-            li.nav-item[class=(is_active ? 'menu-open' : '')]
-              a.nav-link[class=(is_active ? 'active' : '')]
+            li.nav-item[class=(item[:active] ? 'menu-open' : '')]
+              a.nav-link[class=(item[:active] ? 'active' : '')]
                 i.nav-icon.fas[class=item[:icon]]
                 p
                   = item[:name]
@@ -44,6 +43,7 @@ aside.main-sidebar.sidebar-dark-primary.elevation-4
                 - item[:items].each do |subitem|
                   li.nav-item
                     a.nav-link[href=subitem[:url] class=(subitem[:active] ? 'active' : '')]
+                      p.pl-2
                       i.far.nav-icon[class=(subitem[:icon] || 'fa-circle')]
                       p
                         = subitem[:name]

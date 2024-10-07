@@ -1,0 +1,6 @@
+- if flash.present?
+  #error_explanation[data-turbo-cache="false"]
+  ul
+    - flash.each do |type, message|
+      li[class=type]
+        = message

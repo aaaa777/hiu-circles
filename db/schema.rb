@@ -10,22 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_03_044357) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_03_014317) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "circle_log_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "circle_log_types", force: :cascade do |t|
     t.string "name"
     t.string "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "circle_logs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "circle_id", null: false
-    t.uuid "author_id", null: false
-    t.uuid "target_member_id"
+  create_table "circle_logs", force: :cascade do |t|
+    t.bigint "circle_id", null: false
+    t.bigint "author_id", null: false
+    t.bigint "target_member_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["author_id"], name: "index_circle_logs_on_author_id"
@@ -33,74 +33,76 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_03_044357) do
     t.index ["target_member_id"], name: "index_circle_logs_on_target_member_id"
   end
 
-  create_table "circle_roles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "circle_roles", force: :cascade do |t|
     t.string "name"
+    t.bigint "circle_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["circle_id"], name: "index_circle_roles_on_circle_id"
   end
 
-  create_table "circles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "circles", force: :cascade do |t|
     t.string "name"
     t.string "status"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "document_excel_inputs", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "document_excel_inputs", force: :cascade do |t|
     t.integer "col_index"
     t.integer "row_index"
     t.string "value"
-    t.uuid "document_id", null: false
+    t.bigint "document_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["document_id"], name: "index_document_excel_inputs_on_document_id"
   end
 
-  create_table "document_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "document_types", force: :cascade do |t|
     t.string "name"
     t.binary "template_file"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "documents", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "documents", force: :cascade do |t|
     t.string "name"
     t.binary "file"
-    t.uuid "circle_id", null: false
-    t.uuid "document_type_id", null: false
+    t.bigint "circle_id", null: false
+    t.bigint "document_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["circle_id"], name: "index_documents_on_circle_id"
     t.index ["document_type_id"], name: "index_documents_on_document_type_id"
   end
 
-  create_table "enabled_request_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "circle_id", null: false
-    t.uuid "request_type_id", null: false
+  create_table "enabled_request_types", force: :cascade do |t|
+    t.bigint "circle_id", null: false
+    t.bigint "request_type_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["circle_id"], name: "index_enabled_request_types_on_circle_id"
     t.index ["request_type_id"], name: "index_enabled_request_types_on_request_type_id"
   end
 
-  create_table "member_circle_role_relations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "member_id", null: false
-    t.uuid "circle_role_id", null: false
+  create_table "member_circle_role_relations", force: :cascade do |t|
+    t.bigint "member_id", null: false
+    t.bigint "circle_role_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["circle_role_id"], name: "index_member_circle_role_relations_on_circle_role_id"
     t.index ["member_id"], name: "index_member_circle_role_relations_on_member_id"
   end
 
-  create_table "members", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "members", force: :cascade do |t|
     t.string "status"
-    t.uuid "circle_id", null: false
+    t.bigint "circle_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["circle_id"], name: "index_members_on_circle_id"
   end
 
-  create_table "news", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "news", force: :cascade do |t|
     t.string "title"
     t.string "caption"
     t.string "content"
@@ -112,36 +114,28 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_03_044357) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "request_types", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "request_types", force: :cascade do |t|
     t.string "title"
     t.string "description"
+    t.bigint "circle_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.uuid "circle_id", null: false
     t.index ["circle_id"], name: "index_request_types_on_circle_id"
   end
 
-  create_table "requests", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "requests", force: :cascade do |t|
     t.string "status"
     t.string "note"
-    t.uuid "circle_id", null: false
-    t.uuid "request_type_id", null: false
-    t.uuid "applicant_id", null: false
-    t.uuid "approver_id", null: false
+    t.bigint "circle_id", null: false
+    t.bigint "request_type_id", null: false
+    t.bigint "applicant_id"
+    t.bigint "approver_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["applicant_id"], name: "index_requests_on_applicant_id"
     t.index ["approver_id"], name: "index_requests_on_approver_id"
     t.index ["circle_id"], name: "index_requests_on_circle_id"
     t.index ["request_type_id"], name: "index_requests_on_request_type_id"
-  end
-
-  create_table "roles", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.string "name"
-    t.uuid "circle_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["circle_id"], name: "index_roles_on_circle_id"
   end
 
   create_table "shortened_urls", id: :serial, force: :cascade do |t|
@@ -160,16 +154,23 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_03_044357) do
     t.index ["url"], name: "index_shortened_urls_on_url"
   end
 
-  create_table "user_role_relations", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
-    t.uuid "role_id", null: false
+  create_table "site_roles", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.uuid "user_id", null: false
-    t.index ["role_id"], name: "index_user_role_relations_on_role_id"
-    t.index ["user_id"], name: "index_user_role_relations_on_user_id"
   end
 
-  create_table "users", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+  create_table "user_site_role_relations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "site_role_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["site_role_id"], name: "index_user_site_role_relations_on_site_role_id"
+    t.index ["user_id"], name: "index_user_site_role_relations_on_user_id"
+  end
+
+  create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -201,6 +202,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_03_044357) do
   add_foreign_key "circle_logs", "circles"
   add_foreign_key "circle_logs", "members", column: "author_id"
   add_foreign_key "circle_logs", "members", column: "target_member_id"
+  add_foreign_key "circle_roles", "circles"
   add_foreign_key "document_excel_inputs", "documents"
   add_foreign_key "documents", "circles"
   add_foreign_key "documents", "document_types"
@@ -211,10 +213,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_03_044357) do
   add_foreign_key "members", "circles"
   add_foreign_key "request_types", "circles"
   add_foreign_key "requests", "circles"
-  add_foreign_key "requests", "members", column: "applicant_id"
-  add_foreign_key "requests", "members", column: "approver_id"
   add_foreign_key "requests", "request_types"
-  add_foreign_key "roles", "circles"
-  add_foreign_key "user_role_relations", "roles"
-  add_foreign_key "user_role_relations", "users"
+  add_foreign_key "requests", "users", column: "applicant_id"
+  add_foreign_key "requests", "users", column: "approver_id"
+  add_foreign_key "user_site_role_relations", "site_roles"
+  add_foreign_key "user_site_role_relations", "users"
 end

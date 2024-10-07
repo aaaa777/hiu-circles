@@ -1,4 +1,4 @@
-= render 'layouts/shared/form', title: 'Circle-Hub', title_link: circles_path, description: 'Circle-Hubに団体を作成します。'
+= render 'layouts/form/form', title: 'Circle-Hub', title_link: circles_path, description: 'Circle-Hubに団体を作成します。'
   - if @circle.errors.any?
     ul
       - @circle.errors.full_messages.each do |message|
