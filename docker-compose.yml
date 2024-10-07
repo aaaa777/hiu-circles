@@ -12,8 +12,8 @@ services:
     image: postgres
     restart: always
     environment:
-      POSTGRES_USER: "username"
-      POSTGRES_PASSWORD: "password"
+      POSTGRES_USER: circlehub
+      POSTGRES_PASSWORD: "${POSTGRES_PASSWORD?`POSTGRES_PASSWORD`をセットしてください}"
     volumes:
       - db-data:/var/lib/postgresql/data
-      - ./postgres/init:/docker-entrypoint-initdb.d
+      - .db/postgres/init:/docker-entrypoint-initdb.d

@@ -98,9 +98,11 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_07_010521) do
   create_table "members", force: :cascade do |t|
     t.string "status"
     t.bigint "circle_id", null: false
+    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["circle_id"], name: "index_members_on_circle_id"
+    t.index ["user_id"], name: "index_members_on_user_id"
   end
 
   create_table "news", force: :cascade do |t|
@@ -119,6 +121,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_07_010521) do
     t.string "title"
     t.string "description"
     t.string "flow_name"
+    t.string "type"
     t.bigint "circle_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -128,6 +131,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_07_010521) do
   create_table "requests", force: :cascade do |t|
     t.string "status"
     t.string "note"
+    t.string "type"
     t.bigint "circle_id", null: false
     t.bigint "request_type_id", null: false
     t.bigint "applicant_id"
@@ -213,6 +217,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_07_010521) do
   add_foreign_key "member_circle_role_relations", "circle_roles"
   add_foreign_key "member_circle_role_relations", "members"
   add_foreign_key "members", "circles"
+  add_foreign_key "members", "users"
   add_foreign_key "request_types", "circles"
   add_foreign_key "requests", "circles"
   add_foreign_key "requests", "request_types"

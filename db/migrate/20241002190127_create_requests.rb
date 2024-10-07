@@ -3,6 +3,7 @@ class CreateRequests < ActiveRecord::Migration[7.1]
     create_table :requests do |t|
       t.string :status
       t.string :note
+      t.string :type
       
       t.references :circle, null: false, foreign_key: true
       t.references :request_type, null: false, foreign_key: true

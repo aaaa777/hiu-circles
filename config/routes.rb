@@ -24,7 +24,7 @@ Rails.application.routes.draw do
           get :wip
         end
 
-        resources :requests
+        resources :from_user_requests
       end
     end
   end

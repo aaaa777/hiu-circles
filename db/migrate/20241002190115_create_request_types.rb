@@ -4,6 +4,7 @@ class CreateRequestTypes < ActiveRecord::Migration[7.1]
       t.string :title
       t.string :description
       t.string :flow_name
+      t.string :type
       # add_reference :request_types, :circle, null: false, foreign_key: true
       t.references :circle, null: false, foreign_key: true
       t.timestamps

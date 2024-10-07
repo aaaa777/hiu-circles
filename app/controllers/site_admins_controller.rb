@@ -1,2 +1,2 @@
-class SiteAdminController < DashboardsController
+class SiteAdminsController < AdminController
 end
