@@ -20,9 +20,16 @@ class CirclesController < CircleHubController
     end
   end
 
+  protected
+
+  def store_location?
+    true
+  end
+
   private
 
   def circle_params
     params.require(:circle).permit(:name)
   end
+
 end

@@ -1,4 +1,4 @@
-class FromUserRequestsController < ApplicationController
+class FromUserRequestsController < LoginRequiredAreaController
   before_action :load_circle
 
   def index

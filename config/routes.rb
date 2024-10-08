@@ -1,12 +1,13 @@
 Rails.application.routes.draw do
   # get 'static_pages/home'
   # get 'static_pages/help'
-  devise_for :users
+  root to: 'static_pages#redirect_to_root'
+  constraints host: Rails.configuration.x.domains.hiu_hub do
+    devise_for :users
+    get :home, to: 'static_pages#home'
+  end
 
-  root to: 'static_pages#hiu_hub'
-
-  scope :circle_hub do
-    root to: 'static_pages#home', as: :circle_hub_root
+  constraints host: Rails.configuration.x.domains.circle_hub do
     resources :circles do
       member do
         resource :circle_admin, only: [] do
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :admin_hub do
+  constraints host: Rails.configuration.x.domains.admin_hub do
     resources :site_admin
   end
   

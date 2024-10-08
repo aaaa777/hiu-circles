@@ -1,0 +1,75 @@
+header#header.header.d-flex.align-items-center.sticky-top
+  .container.position-relative.d-flex.align-items-center
+    a.logo.d-flex.align-items-center.me-auto[href="index.html"]
+
+      h1.sitename
+        = title
+    nav#navmenu.navmenu
+      ul
+        li
+          a.active[href="#hero"]
+            | Home
+        li
+          a[href="#about"]
+            | About
+        li
+          a[href="#services"]
+            | Services
+        li
+          a[href="#portfolio"]
+            | Portfolio
+        li
+          a[href="#team"]
+            | Team
+        li.dropdown
+          a[href="#"]
+            span
+              | Dropdown
+            i.bi.bi-chevron-down.toggle-dropdown
+          ul
+            li
+              a[href="#"]
+                | Dropdown 1
+            li.dropdown
+              a[href="#"]
+                span
+                  | Deep Dropdown
+                i.bi.bi-chevron-down.toggle-dropdown
+              ul
+                li
+                  a[href="#"]
+                    | Deep Dropdown 1
+                li
+                  a[href="#"]
+                    | Deep Dropdown 2
+                li
+                  a[href="#"]
+                    | Deep Dropdown 3
+                li
+                  a[href="#"]
+                    | Deep Dropdown 4
+                li
+                  a[href="#"]
+                    | Deep Dropdown 5
+            li
+              a[href="#"]
+                | Dropdown 2
+            li
+              a[href="#"]
+                | Dropdown 3
+            li
+              a[href="#"]
+                | Dropdown 4
+          li
+            a[href="#contact"]
+              | Contact
+      i.mobile-nav-toggle.d-xl-none.bi.bi-list
+    .header-social-links
+      a.twitter[href="#"]
+        i.bi.bi-twitter-x
+      a.facebook[href="#"]
+        i.bi.bi-facebook
+      a.instagram[href="#"]
+        i.bi.bi-instagram
+      a.linkedin[href="#"]
+        i.bi.bi-linkedin
