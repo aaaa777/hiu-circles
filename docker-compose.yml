@@ -1,13 +1,26 @@
-version: "3"
 services:
-  web:
+  web: # docker compose up --build で起動
     build: .
     ports:
-      - "127.0.0.1:5000:5000"
-    volumes:
-      - .:/rails
+      - "5001:5000"
+    environment:
+      RAILS_MASTER_KEY: "${RAILS_MASTER_KEY?`RAILS_MASTER_KEY`をセットしてください}"
+    # volumes:
+      # - .:/rails
     depends_on:
       - db
+  # mac-build: # WIP
+  #   image: registry.docker.com/library/ruby:3.3.4-slim
+  #   volumes:
+  #     - .:/rails
+  #   working_dir: /rails
+  #   command: apt update && apt install build-essential clang && export CC=/usr/bin/clang && export CXX=/usr/bin/clang++ && bundle update && bundle install # 適当
+  apache:
+    image: httpd:2.4
+    ports:
+      - "8080:80"
+    volumes:
+      - ./public:/usr/local/apache2/htdocs/
   db:
     image: postgres
     restart: always
@@ -17,3 +30,6 @@ services:
     volumes:
       - db-data:/var/lib/postgresql/data
       - .db/postgres/init:/docker-entrypoint-initdb.d
+
+volumes:
+  db-data:

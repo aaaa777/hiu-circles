@@ -22,9 +22,11 @@ test:
 production:
   <<: *default
   # database: db/production.sqlite3 変更
+  host: db
+  port: 5432
   database: circlehub_production
-  username: username
-  password: password
+  username: circlehub
+  password: <%= Rails.application.credentials.postgres&.dig(:password) %>
   # username: <%= ENV['PG_DATABASE_USERNAME'] %>
   # password: <%= ENV['PG_DATABASE_PASSWORD'] %>
 

@@ -10,9 +10,9 @@
 
 user = User.find_or_create_by!(
   email: "a@a.a",
+  password: "aaaaaa",
 )
 user.update!(
-  password: "aaaaaa",
   first_name: "太郎",
   last_name: "山田",
 )
