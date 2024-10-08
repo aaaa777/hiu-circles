@@ -13,6 +13,6 @@ class StaticPagesController < ApplicationController
   end
 
   def redirect_to_root
-    redirect_to home_url, allow_other_host: true
+    redirect_to home_path, host: Rails.configuration.x.domains.hiu_hub
   end
 end
