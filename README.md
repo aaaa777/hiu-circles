@@ -28,5 +28,5 @@ Things you may want to cover:
 
 - form_withを上位のdivごとパーツ化して、エラー時にエラー項目を赤く縁取る
 
-
+- `=[]`の実装が#sendだった時、ハッシュ以外が入ったら脆弱になるかも
 

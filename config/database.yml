@@ -25,7 +25,7 @@ production:
   host: db
   port: 5432
   database: circlehub_production
-  username: circlehub
+  username: <%= Rails.application.credentials.postgres&.dig(:username) %>
   password: <%= Rails.application.credentials.postgres&.dig(:password) %>
   # username: <%= ENV['PG_DATABASE_USERNAME'] %>
   # password: <%= ENV['PG_DATABASE_PASSWORD'] %>
