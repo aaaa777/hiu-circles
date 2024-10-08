@@ -13,6 +13,6 @@ class StaticPagesController < ApplicationController
   end
 
   def redirect_to_root
-    redirect_to home_url
+    redirect_to home_url(allow_other_host: true)
   end
 end
