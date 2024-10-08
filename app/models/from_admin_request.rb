@@ -1,3 +1,6 @@
 class FromAdminRequest < Request
-  belongs_to :from_admin_request_type
+
+  def from_user_request_type
+    FromUserRequestType.find_by(id: request_type.id)
+  end
 end

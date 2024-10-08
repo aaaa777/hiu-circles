@@ -11,14 +11,16 @@
           b
             = title
       .card-body
-        p.login-box-msg
-          = description
+        .card-header
+          p.login-box-msg
+            = description
         - if flash.present?
-          #error_explanation[data-turbo-cache="false"]
-          ul
-            - flash.each do |type, message|
-              li[class=type]
-                = message
+          .card-header
+            #error_explanation[data-turbo-cache="false"]
+            ul
+              - flash.each do |type, message|
+                li[class=type]
+                  = message
         = yield
         / .social-auth-links.text-center
           / a.btn.btn-block.btn-primary[href="#"]

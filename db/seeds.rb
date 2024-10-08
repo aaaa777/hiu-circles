@@ -29,3 +29,7 @@ Member.find_or_create_by!(
 ).update!(
   status: "joined"
 )
+
+FromUserRequestType.find_by(title: "入部申請") || FromUserRequestType.new(title: "入部申請", circle: Circle.first, description: "入部を申請します").save!
+FromUserRequestType.find_by(title: "仮入部申請") || FromUserRequestType.new(title: "仮入部申請", circle: Circle.first, description: "仮入部を申請します").save!
+FromUserRequestType.find_by(title: "退部申請") || FromUserRequestType.new(title: "退部申請", circle: Circle.first, description: "退部を申請します").save!

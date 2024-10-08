@@ -1,5 +1,6 @@
-= render 'layouts/form/form', title: @circle.name, title_link: circles_path, description: "#{@circle.name}が現在受け付けている申請一覧です"
+= render 'layouts/form/form', title: @circle.name, title_link: circles_path, description: "現在受け付けている申請一覧です", back_link: circle_path(@circle)
   - @request_types.each do |request_type|
-    = link_to request_type.title, new_request_path(@circle, request_type_id: request_type)
-    br
+    .card-body.
+      = link_to request_type.title, new_from_user_request_path(@circle, request_type_id: request_type)
+
 

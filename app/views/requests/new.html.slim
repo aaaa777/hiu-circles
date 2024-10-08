@@ -1,21 +1,15 @@
 = render 'layouts/form/form', title: "#{@circle.name} #{@request_type.title}", title_link: circles_path, description: @request_type.description, back_link: from_user_requests_path(@circle)
   - if @requests_user_has_sent.present?
-    / .input-group.mb-3.py-3
-    .callout.callout-warning
-      a[href='#']
-        = @requests_user_has_sent.count
-        | 件の申請
-      | を既に送信しています
+    #error_explanation[data-turbo-cache="false"]
+      h2
+        | あなたは既に
+          a[href="#"]
+            = "#{@requests_user_has_sent.count} 件の申請"
+        | を送信しています"
   = form_with model: @user, url: '#', data: { turbo: false } do |f|
     = f.label :first_name
     .input-group.mb-3
       = f.text_field :first_name, class: "form-control", disabled: true
-      .input-group-append
-        .input-group-text
-          span.fas.fa-user
-    = f.label :email
-    .input-group.mb-3
-      = f.text_field :email, class: "form-control", disabled: true
       .input-group-append
         .input-group-text
           span.fas.fa-user
@@ -24,6 +18,9 @@
     = f.label :note
     .input-group.mb-3
       = f.text_area :note, autofocus: true, autocomplete: "note", class: "form-control", placeholder: "特筆事項があれば記入してください"
+      / .input-group-append
+      /   .input-group-text
+      /     span.fas.fa-envelope
     .row
       .col-12
         = f.submit '申請', class: 'btn btn-primary btn-block'
