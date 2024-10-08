@@ -8,11 +8,10 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-user = User.find_or_create_by!(
-  email: "a@a.a",
-  password: "aaaaaa",
-)
+user = User.find_by(email: "a@a.a") || User.new(email: "a@a.a", password: "aaaaaa")
+
 user.update!(
+  password: "aaaaaa",
   first_name: "太郎",
   last_name: "山田",
 )
