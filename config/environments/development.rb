@@ -83,6 +83,7 @@ Rails.application.configure do
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   config.hosts = [
+    "127.0.0.1",
     "localhost",      # Allow requests from the local machine
     "nomiss.net",     # Allow requests from example.com
     /.*\.nomiss\.net/ # Allow requests from subdomains like `www.example.com`
