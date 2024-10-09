@@ -744,7 +744,7 @@ section,
 # Hero Section
 --------------------------------------------------------------*/
 .hero {
-  background: url(../img/hero-bg.png) right center no-repeat;
+  background: url('scaffold-theme/hero-bg.png') right center no-repeat;
   width: 100%;
   min-height: 60vh;
   position: relative;

@@ -75,11 +75,9 @@ Rails.application.configure do
   # Raise error when a before_action's only/except options reference missing actions
   config.action_controller.raise_on_missing_callback_actions = true
 
-  config.x.domains.hiu_hub = "localhost"
-  config.x.domains.circle_hub = "localhost"
   config.x.domains.admin_hub = "localhost"
-  config.x.domains.news_hub = "localhost"
-  config.x.domains.api_hub = "localhost"
+
+  config.x.domains.hub = "localhost"
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   config.hosts = [

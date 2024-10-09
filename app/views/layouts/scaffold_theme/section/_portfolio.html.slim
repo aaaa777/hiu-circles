@@ -1,0 +1,28 @@
+  section#portfolio.portfolio.section
+    .container.section-title[data-aos="fade-up"]
+      h2
+        = title
+      p
+        | Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+    .container
+      .isotope-layout[data-default-filter="*" data-layout="masonry" data-sort="original-order"]
+        ul.portfolio-filters.isotope-filters[data-aos="fade-up" data-aos-delay="100"]
+          - filter_headers.each do |filter_header|
+            li[data-filter=filter_header[:filter] class=(filter_header[:active] ? "filter-active" : "")]
+              = filter_header[:name]
+        .row.gy-4.isotope-container[data-aos="fade-up" data-aos-delay="200"]
+          - items.each do |item|
+            = render "layouts/scaffold_theme/section/portfolio_item", image_url: item[:image_url], detail_url: item[:detail_url], title: item[:title], description: item[:description], filter: item[:filter]
+          / = render "layouts/scaffold_theme/section/portfolio_item", image_url: asset_path("scaffold-theme/portfolio/app-1.jpg"), detail_url: '#', title: "App 1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "app"
+          / = render "layouts/scaffold_theme/section/portfolio_item", image_url: asset_path("scaffold-theme/portfolio/product-1.jpg"), detail_url: '#', title: "Product 1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "product"
+          / = render "layouts/scaffold_theme/section/portfolio_item", image_url: asset_path("scaffold-theme/portfolio/branding-1.jpg"), detail_url: '#', title: "Branding 1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "branding"
+          / = render "layouts/scaffold_theme/section/portfolio_item", image_url: asset_path("scaffold-theme/portfolio/books-1.jpg"), detail_url: '#', title: "Books 1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "books"
+          / = render "layouts/scaffold_theme/section/portfolio_item", image_url: asset_path("scaffold-theme/portfolio/app-2.jpg"), detail_url: '#', title: "App 2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "app"
+          / = render "layouts/scaffold_theme/section/portfolio_item", image_url: asset_path("scaffold-theme/portfolio/product-2.jpg"), detail_url: '#', title: "Product 2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "product"
+          / = render "layouts/scaffold_theme/section/portfolio_item", image_url: asset_path("scaffold-theme/portfolio/branding-2.jpg"), detail_url: '#', title: "Branding 2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "branding"
+          / = render "layouts/scaffold_theme/section/portfolio_item", image_url: asset_path("scaffold-theme/portfolio/books-2.jpg"), detail_url: '#', title: "Books 2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "books"
+          / = render "layouts/scaffold_theme/section/portfolio_item", image_url: asset_path("scaffold-theme/portfolio/app-3.jpg"), detail_url: '#', title: "App 3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "app"
+          / = render "layouts/scaffold_theme/section/portfolio_item", image_url: asset_path("scaffold-theme/portfolio/product-3.jpg"), detail_url: '#', title: "Product 3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "product"
+          / = render "layouts/scaffold_theme/section/portfolio_item", image_url: asset_path("scaffold-theme/portfolio/branding-3.jpg"), detail_url: '#', title: "Branding 3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "branding"
+          / = render "layouts/scaffold_theme/section/portfolio_item", image_url: asset_path("scaffold-theme/portfolio/books-3.jpg"), detail_url: '#', title: "Books 3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "books"
+          

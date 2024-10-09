@@ -5,12 +5,12 @@ footer#footer.footer.light-background
         .col-lg-4.col-md-6.footer-about
           a.logo.d-flex.align-items-center[href="index.html"]
             span.sitename
-              | Scaffold
+              | CircleHub
           .footer-contact.pt-3
             p
-              | A108 Adam Street
+              | 北海道情報大学
             p
-              | New York, NY 535022
+              | 部室棟1階 101
             p.mt-3
             strong
               | Phone:
@@ -21,86 +21,15 @@ footer#footer.footer.light-background
               | Email:
             span
               | info@example.com
+        - @footer_list.each do |footer|
           .col-lg-2.col-md-3.footer-links
             h4
-              | Useful Links
+              = footer[:name]
             ul
-
-              li
-                a[href="#"]
-                  | Home
-              li
-                a[href="#"]
-                  | About us
-              li
-                a[href="#"]
-                  | Services
-              li
-                a[href="#"]
-                  | Terms of service
-              li
-                a[href="#"]
-                  | Privacy policy
-          .col-lg-2.col-md-3.footer-links
-            h4
-              | Our Services
-            ul
-
-              li
-                a[href="#"]
-                  | Web Design
-              li
-                a[href="#"]
-                  | Web Development
-              li
-                a[href="#"]
-                  | Product Management
-              li
-                a[href="#"]
-                  | Marketing
-              li
-                a[href="#"]
-                  | Graphic Design
-          .col-lg-2.col-md-3.footer-links
-            h4
-              | Hic solutasetp
-            ul
-
-              li
-                a[href="#"]
-                  | Molestiae accusamus iure
-              li
-                a[href="#"]
-                  | Excepturi dignissimos
-              li
-                a[href="#"]
-                  | Suscipit distinctio
-              li
-                a[href="#"]
-                  | Dilecta
-              li
-                a[href="#"]
-                  | Sit quas consectetur
-          .col-lg-2.col-md-3.footer-links
-            h4
-              | Nobis illum
-            ul
-
-              li
-                a[href="#"]
-                  | Ipsam
-              li
-                a[href="#"]
-                  | Laudantium dolorum
-              li
-                a[href="#"]
-                  | Dinera
-              li
-                a[href="#"]
-                  | Trodelas
-              li
-                a[href="#"]
-                  | Flexo
+              - footer[:items].each do |item|
+                li
+                  a[href=item[:url]]
+                    = item[:name]
   .copyright.text-center
     .container.d-flex.flex-column.flex-lg-row.justify-content-center.justify-content-lg-between.align-items-center
       .d-flex.flex-column.align-items-center.align-items-lg-start
@@ -108,13 +37,13 @@ footer#footer.footer.light-background
           |  © Copyright 
           strong
             span
-              | MyWebsite
+              | HIU Computer Operating Club
           | . All Rights Reserved 
         .credits
           |  Designed by 
           a[href="https://bootstrapmade.com/"]
             | BootstrapMade
-        .social-links.order-first.order-lg-last.mb-3.mb-lg-0
+        / .social-links.order-first.order-lg-last.mb-3.mb-lg-0
           a[href=""]
             i.bi.bi-twitter-x
           a[href=""]

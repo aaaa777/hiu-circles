@@ -1,0 +1,31 @@
+section#testimonials.testimonials.section
+    .container.section-title[data-aos="fade-up"]
+      h2
+        | Testimonials
+      p
+        | Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+    .container[data-aos="fade-up" data-aos-delay="100"]
+      .swiper.init-swiper[data-speed="600" data-delay="5000" data-breakpoints="{ &quot;320&quot;: { &quot;slidesPerView&quot;: 1, &quot;spaceBetween&quot;: 40 }, &quot;1200&quot;: { &quot;slidesPerView&quot;: 3, &quot;spaceBetween&quot;: 40 } }"]
+        script.swiper-config[type="application/json"]
+          |  { "loop": true, "speed": 600, "autoplay": { "delay": 5000 }, "slidesPerView": "auto", "pagination": { "el": ".swiper-pagination", "type": "bullets", "clickable": true }, "breakpoints": { "320": { "slidesPerView": 1, "spaceBetween": 40 }, "1200": { "slidesPerView": 3, "spaceBetween": 20 } } } 
+        .swiper-wrapper
+          - [ \
+              "scaffold-theme/testimonials/testimonials-1.jpg", \
+              "scaffold-theme/testimonials/testimonials-2.jpg", \
+              "scaffold-theme/testimonials/testimonials-3.jpg", \
+              "scaffold-theme/testimonials/testimonials-4.jpg", \
+              "scaffold-theme/testimonials/testimonials-5.jpg" \
+            ].each do |image|
+            .swiper-slide
+              .div.testimonial-item 
+                p
+                  i.bi.bi-quote.quote-icon-left
+                  span
+                    | Proin iaculis purus consequat sem cure digni ssim donec porttitora entum suscipit rhoncus. Accusantium quam, ultricies eget id, aliquam eget nibh et. Maecen aliquam, risus at semper.
+                  i.bi.bi-quote.quote-icon-right
+                img.testimonial-img[src=asset_path(image) alt=""]
+                h3
+                  | Saul Goodman
+                h4
+                  | Ceo & Founder
+        .swiper-pagination

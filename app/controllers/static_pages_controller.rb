@@ -13,6 +13,10 @@ class StaticPagesController < ApplicationController
   end
 
   def redirect_to_root
-    redirect_to home_path, host: Rails.configuration.x.domains.hiu_hub
+    redirect_to home_path
+  end
+
+  def redirect_to_about_circle_root
+    redirect_to about_circles_path
   end
 end

@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   # get 'static_pages/home'
   # get 'static_pages/help'
-  root to: 'static_pages#redirect_to_root'
-  constraints host: Rails.configuration.x.domains.hiu_hub do
-    devise_for :users
-    get :home, to: 'static_pages#home'
-  end
+  devise_for :users
+  # root to: 'static_pages#redirect_to_root'
+  # get :home, to: 'static_pages#home'
+  root to: 'static_pages#home'
 
-  constraints host: Rails.configuration.x.domains.circle_hub do
+  scope :circle_hub do
+    root to: 'static_pages#redirect_to_about_circle_root', as: :circle_hub_root
     resources :circles do
+      get :about, on: :collection
       member do
         resource :circle_admin, only: [] do
           get :index

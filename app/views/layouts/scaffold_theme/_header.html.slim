@@ -1,70 +1,45 @@
 header#header.header.d-flex.align-items-center.sticky-top
   .container.position-relative.d-flex.align-items-center
-    a.logo.d-flex.align-items-center.me-auto[href="index.html"]
+    a.logo.d-flex.align-items-center.me-auto[href=title_link]
 
       h1.sitename
-        = title
+        img[src=asset_path("scaffold-theme/circlehub-900x300.png") alt=""]
+        / = title
     nav#navmenu.navmenu
       ul
-        li
-          a.active[href="#hero"]
-            | Home
-        li
-          a[href="#about"]
-            | About
-        li
-          a[href="#services"]
-            | Services
-        li
-          a[href="#portfolio"]
-            | Portfolio
-        li
-          a[href="#team"]
-            | Team
-        li.dropdown
-          a[href="#"]
-            span
-              | Dropdown
-            i.bi.bi-chevron-down.toggle-dropdown
-          ul
+        - @header_list.each do |header|
+          - case header[:type]
+          - when :link
             li
-              a[href="#"]
-                | Dropdown 1
+              a[href=header[:url]]
+                = header[:name]
+          - when :dropdown
             li.dropdown
               a[href="#"]
-                span
-                  | Deep Dropdown
+                = header[:name]
                 i.bi.bi-chevron-down.toggle-dropdown
               ul
-                li
-                  a[href="#"]
-                    | Deep Dropdown 1
-                li
-                  a[href="#"]
-                    | Deep Dropdown 2
-                li
-                  a[href="#"]
-                    | Deep Dropdown 3
-                li
-                  a[href="#"]
-                    | Deep Dropdown 4
-                li
-                  a[href="#"]
-                    | Deep Dropdown 5
-            li
-              a[href="#"]
-                | Dropdown 2
-            li
-              a[href="#"]
-                | Dropdown 3
-            li
-              a[href="#"]
-                | Dropdown 4
-          li
-            a[href="#contact"]
-              | Contact
+                - header[:items].each do |item|
+                  - case item[:type] 
+                  - when :link
+                    li
+                      a[href=item[:url]]
+                        = item[:name]
+                  - when :dropdown
+                    li.dropdown
+                      a[href="#"]
+                        = item[:name]
+                        i.bi.bi-chevron-down.toggle-dropdown
+                      ul
+                        - item[:items].each do |subitem|
+                          li
+                            a[href=subitem[:url]]
+                              = subitem[:name]
+        li
+          a[href="#contact"]
+            | Contact
       i.mobile-nav-toggle.d-xl-none.bi.bi-list
-    .header-social-links
+    / .header-social-links
       a.twitter[href="#"]
         i.bi.bi-twitter-x
       a.facebook[href="#"]

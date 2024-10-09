@@ -1,4 +1,9 @@
 class CirclesController < CircleHubController
+  # before_action :load_data
+
+  def about
+  end
+
   def index
     @circles = Circle.all
   end
@@ -22,9 +27,28 @@ class CirclesController < CircleHubController
 
   protected
 
-  def store_location?
-    true
-  end
+  # def load_data
+  #   @header_list = header_list
+  # end
+
+  # def store_location?
+  #   true
+  # end
+
+  # def header_list
+  #   [
+  #     { name: "Home", type: :link, url: request.path == circles_path ? "#hero" : circles_path(id: :hero), },
+  #     { name: "About", type: :link, url: request.path == circles_path ? "#about" : circles_path(id: :about), },
+  #     { name: "Circles", type: :link, url: circles_path, },
+  #     { name: "Dropdown", type: :dropdown, items: [
+  #       { name: "Item 1", type: :link, url: "#", },
+  #       { name: "Deep Dropdown", type: :dropdown, items: [
+  #         { name: "Item 1", type: :link, url: "#", },
+  #         { name: "Item 2", type: :link, url: "#", },
+  #       ]},
+  #     ]},
+  #   ]
+  # end
 
   private
 

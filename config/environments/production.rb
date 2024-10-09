@@ -97,11 +97,7 @@ Rails.application.configure do
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
 
-  config.x.domains.hiu_hub = "hiu-hub.nomiss.net"
-  config.x.domains.circle_hub = "hiu-circles.nomiss.net"
   config.x.domains.admin_hub = "admin-hub.nomiss.net"
-  config.x.domains.news_hub = "news-hub.nomiss.net"
-  config.x.domains.api_hub = "api-hub.nomiss.net"
 
   # Enable DNS rebinding protection and other `Host` header attacks.
   config.hosts = [

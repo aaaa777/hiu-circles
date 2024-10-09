@@ -1,0 +1,20 @@
+section#faq.faq.section.light-background
+  .container.section-title[data-aos="fade-up"]
+    h2
+      | Frequently Asked Questions
+    p
+      | Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit
+  .container
+    .row.justify-content-center
+      .col-lg-8
+        .faq-container
+          - qa_list.each_with_index do |faq, i|
+            .faq-item[data-aos="fade-up" data-aos-delay=(faq[:delay] || (200 + i * 100)) class=(faq[:active] ? "faq-active" : "")]
+              i.faq-icon.bi.bi-question-circle
+              h3
+                = faq[:question]
+              .faq-content
+                p
+                  = faq[:answer]
+              i.faq-toggle.bi.bi-chevron-right
+              
