@@ -23,6 +23,41 @@
 main.main
   section#hero.hero.section
     .container
+      .row.gy-4.justify-content-center.text-center
+        .col-lg-9.order-2.order-lg-1.d-flex.flex-column
+          .d-flex.pb-4.flex-column.flex-md-row.align-items-center
+            .col-6.col-md-4.p-1
+              = link_to about_circles_path do
+                img.img-fluid[src=asset_path("scaffold-theme/circlehub-900x300.png") alt=""]
+            .col-6.col-md-4.p-1
+              = link_to about_circles_path do
+                img.img-fluid[src=asset_path("scaffold-theme/newshub-tekitou.png") alt=""]
+            .col-6.col-md-4.p-1
+              = link_to about_circles_path do
+                img.img-fluid[src=asset_path("scaffold-theme/apihub-tekitou.png") alt=""]
+          - hero_title = [ \
+            "大学の全てを一つに。", # まともなキャッチコピー \
+          ].sample
+          h1.pb-2
+            - hero_title.split("\n").each do |line|
+              = line
+              br
+          p
+            / = hero_desc
+            | ポータルの確認、書類の提出、サークルの管理、講義の確認。
+            br
+            | Hubは大学の情報を一つにまとめるためのアプリケーションです。
+
+          .d-flex.justify-content-center
+            a.btn-get-started[href="#about"]
+              | まずはユーザー登録
+            / a.glightbox.btn-watch-video.d-flex.align-items-center[href="https://www.youtube.com/watch?v=Y7f98aduVJ8"]
+              i.bi.bi-play-circle
+              span
+                | Watch Video
+
+  section#hero.hero.section
+    .container
       .row.gy-4
         .col-lg-7.order-2.order-lg-1.d-flex.flex-column.justify-content-center
           - hero_title = [ \

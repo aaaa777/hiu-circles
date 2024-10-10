@@ -22,8 +22,8 @@ class HubThemeController < ApplicationController
     [
       { name: "ホーム", type: :link, url: root_path, },
       { name: "CircleHub", type: :link, url: circles_path, },
-      { name: "NewsHub", type: :link, url: circles_path, },
-      { name: "APIHub", type: :link, url: circles_path, },
+      { name: "NewsHub", type: :link, url: wip_path, },
+      { name: "APIHub", type: :link, url: wip_path, },
       { name: "Q&A", type: :link, url: q_and_a_path, },
       *(
         user_signed_in? ?

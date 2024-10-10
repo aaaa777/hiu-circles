@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   scope :circle_hub do
     root to: 'static_pages#redirect_to_about_circle_root', as: :circle_hub_root
     get :q_and_a, to: 'static_pages#q_and_a'
+    get :wip, to: 'static_pages#wip'
     resources :circles do
       collection do
         get :about

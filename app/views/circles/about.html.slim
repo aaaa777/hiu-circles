@@ -257,7 +257,7 @@ main.main
       { question: "CircleHubを利用するにはどうすればいいですか？", answer: "現在はまだリリース出来る状態ではないためご利用できません。希望する方はリリースが完了時に連絡いたします。学籍番号`2112097`の学内メールアドレス宛にその旨を連絡ください。", }, \
       { question: "この機能がほしい！/ここにバグがありました！", answer: "学籍番号`2112097`の学内メールアドレス宛に連絡をください。希望通りの対応が出来ない可能性もありますが、ご了承ください。", }, \
     ]                  
-  = render "layouts/scaffold_theme/section/qa", qa_list: qa_list
+  = render "layouts/scaffold_theme/section/qa", title: "関連する質問", description: nil, qa_list: qa_list
   section#services.services.section
     .container.section-title[data-aos="fade-up"]
       h2
