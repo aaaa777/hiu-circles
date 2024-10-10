@@ -20,7 +20,7 @@ services:
   haproxy:
     image: haproxy:2.4
     ports:
-      - "80:80"
+      - "80:8080"
     volumes:
       - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
   maintenance:
