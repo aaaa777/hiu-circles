@@ -1,27 +1,33 @@
 services:
-  web: # docker compose up --build で起動
+  app: # docker compose up --build で起動
     build: .
-    ports:
-      - "5001:5000"
+    # ports:
+    #  - "5001:5000"
     environment:
       RAILS_MASTER_KEY: "${RAILS_MASTER_KEY?`RAILS_MASTER_KEY`をセットしてください}"
     # volumes:
       # - .:/rails
     depends_on:
-      - db
+      - db-dev
   # mac-build: # WIP
   #   image: registry.docker.com/library/ruby:3.3.4-slim
   #   volumes:
   #     - .:/rails
   #   working_dir: /rails
   #   command: apt update && apt install build-essential clang && export CC=/usr/bin/clang && export CXX=/usr/bin/clang++ && bundle update && bundle install # 適当
-  apache:
+  haproxy:
+    image: haproxy:2.4
+    ports:
+      - "8081:80"
+    volumes:
+      - ./haproxy/haproxy.cfg:/usr/local/etc/haproxy/haproxy.cfg
+  maintenance:
     image: httpd:2.4
     ports:
       - "8080:80"
     volumes:
-      - ./public:/usr/local/apache2/htdocs/
-  db:
+      - ./public/_maintenance:/usr/local/apache2/htdocs/
+  db-dev:
     image: postgres
     restart: always
     environment:
