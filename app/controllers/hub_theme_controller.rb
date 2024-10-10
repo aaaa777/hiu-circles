@@ -4,6 +4,7 @@ class HubThemeController < ApplicationController
   protected
 
   def load_data
+    @current_hub_link = current_hub_link
     @page_title = page_title
     @header_list = header_list
     @footer_list = footer_list
@@ -12,6 +13,10 @@ class HubThemeController < ApplicationController
 
   def store_location?
     true
+  end
+
+  def current_hub_link
+    root_path
   end
 
   def page_title
@@ -29,8 +34,8 @@ class HubThemeController < ApplicationController
         user_signed_in? ?
           [
             { name: "アカウント", type: :dropdown, items: [
-              { name: "プロフィール", type: :link, url: edit_user_registration_path, },
-              { name: "自分の所属団体", type: :link, url: circles_path, },
+              { name: "プロフィール", type: :link, url: user_path(current_user), },
+              # { name: "自分の所属団体", type: :link, url: circles_path, },
               { name: "ログアウト", type: :link, url: destroy_user_session_path, method: :delete, },
             ]},
           ]
@@ -40,13 +45,6 @@ class HubThemeController < ApplicationController
             { name: "新規登録", type: :link, url: new_user_registration_path, style: "btn btn-primary", },
           ]
       ),
-      # { name: "Login", type: :dropdown, items: [
-      #   { name: "Item 1", type: :link, url: "#", },
-      #   { name: "Deep Dropdown", type: :dropdown, items: [
-      #     { name: "Item 1", type: :link, url: "#", },
-      #     { name: "Item 2", type: :link, url: "#", },
-      #   ]},
-      # ]},
     ]
   end
 

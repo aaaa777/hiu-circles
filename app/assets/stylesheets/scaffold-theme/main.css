@@ -52,6 +52,14 @@
   --contrast-color: #ffffff;
 }
 
+.newshub-color {
+  --accent-color: #3cdb14;
+}
+
+.apihub-color {
+  --accent-color: #ff1745;
+}
+
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
@@ -152,6 +160,7 @@ h6 {
   padding: 15px 0;
   transition: all 0.5s;
   z-index: 997;
+  box-shadow: 0px 0 2px rgba(0, 0, 0, 0.1);
 }
 
 .header .logo {
@@ -159,15 +168,18 @@ h6 {
 }
 
 .header .logo img {
-  max-height: 36px;
+  max-height: 60px;
   margin-right: 8px;
 }
 
 .header .logo h1 {
   font-size: 30px;
   margin: 0;
+  font-family: "Play", sans-serif;
   font-weight: 700;
-  color: var(--heading-color);
+  font-style: normal;
+  /* color: var(--heading-color); */
+  color: var(--default-color);
 }
 
 .header .header-social-links {
@@ -852,6 +864,11 @@ section,
   font-size: 24px;
   font-weight: 700;
 }
+
+/* .about .content h1 {
+  font-size: 34px;
+  font-weight: 700;
+} */
 
 .about .content p {
   margin: 15px 0 30px 0;

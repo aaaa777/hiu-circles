@@ -1,10 +1,12 @@
 header#header.header.d-flex.align-items-center.sticky-top
-  .container.position-relative.d-flex.align-items-center
-    a.logo.d-flex.align-items-center.me-auto[href=title_link]
-
-      h1.sitename
-        img[src=asset_path("scaffold-theme/circlehub-900x300.png") alt=""]
-        / = title
+  .container.position-relative.d-flex.align-items-center.justify-content-between
+    /a.logo.d-flex.align-items-center.me-auto[href=@current_hub_link]
+    a.logo.d-flex.align-items-center[href=@current_hub_link]
+      - if request.path != root_path
+        img.img-fluid[src=asset_path("scaffold-theme/circlehub-900x300.png") alt=""]
+      - else
+        h1.sitename
+          | Hub
     nav#navmenu.navmenu
       ul
         - @header_list.each do |header|
@@ -26,17 +28,17 @@ header#header.header.d-flex.align-items-center.sticky-top
                   - case item[:type] 
                   - when :link
                     li
-                      = link_to item[:url], method: (header[:method] || :get) do
+                      = link_to item[:url], method: (item[:method] || :get) do
                         = item[:name]
                   - when :dropdown
                     li.dropdown
-                      = link_to item[:url], method: (header[:method] || :get) do
+                      = link_to item[:url], method: (item[:method] || :get) do
                         = item[:name]
                         i.bi.bi-chevron-down.toggle-dropdown
                       ul
                         - item[:items].each do |subitem|
                           li
-                            = link_to item[:url], method: (header[:method] || :get) do
+                            = link_to item[:url], data: { turbo_method: (subitem[:method] || :get) } do
                               = subitem[:name]
         / li
         /   a[href="#contact"]

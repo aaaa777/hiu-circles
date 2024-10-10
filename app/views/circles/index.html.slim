@@ -16,8 +16,8 @@
 
 main.main
   = render "layouts/scaffold_theme/section/portfolio", \
-    title: "団体一覧", \
-    description: "掲載の団体が全てではありませんのでご注意ください。", \
+    title: "CircleHub掲載団体一覧", \
+    description: "全ての公認団体を掲載しているわけではありませんのでご注意ください。", \
     filter_headers: [{ name: "全て", filter: "*", active: true }, { name: "文化部", filter: ".filter-culture" }, { name: "運動部", filter: ".filter-sport" }, { name: "その他", filter: ".filter-other" }], \
     items: [ \
       { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "Computer Operating Club", description: "コンピュータ関連のことならなんでもします！", filter: "culture" }, \
@@ -31,15 +31,17 @@ main.main
       { image_url: asset_path("scaffold-theme/portfolio/sport.png"), title: "部活3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "sport" }, \
     ]
   
-  section#call-to-action.call-to-action.section.light-background
-    img[src=asset_path("scaffold-theme/cta-bg.jpg") alt=""]
-      .container
-        .row[data-aos="zoom-in" data-aos-delay="100"]
-          .col-xl-9.text-center.text-xl-start
-            h3
-              | Call To Action
-            p
-              | Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-          .col-xl-3.cta-btn-container.text-center
-            a.cta-btn.align-middle[href="#"]
-              | Call To Action
+  section#call-to-action.call-to-action.section
+    / img[src=asset_path("scaffold-theme/cta-bg.jpg") alt=""]
+    .container
+      .row[data-aos="zoom-in" data-aos-delay="100"]
+        .col-xl-9.text-center.text-xl-start
+          h3
+            | 所属団体がリストにありませんか？
+          p
+            | もしリストにない場合は、今すぐCircleHubで作成しましょう！
+            | 作成は簡単で、すぐに他のユーザーに公開されます。
+        .col-xl-3.cta-btn-container.text-center
+          a.cta-btn.align-middle[href="#"]
+            | 団体を作成する
+  

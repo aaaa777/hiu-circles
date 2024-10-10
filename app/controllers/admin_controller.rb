@@ -1,10 +1,16 @@
 class AdminController < LoginRequiredAreaController
+  before_action :load_data
 
   private
 
+  def load_data
+    @sidebar_left_title = sidebar_left_title
+    @sidebar_left_subtitle = sidebar_left_subtitle
+    @sidebar_left_items = sidebar_left_items
+  end
 
   def sidebar_left_title
-    "HIU-Hub"
+    "Hub"
   end
 
   def sidebar_left_subtitle
@@ -13,7 +19,7 @@ class AdminController < LoginRequiredAreaController
 
   def sidebar_left_items
     [
-      { name: "ダッシュボード", url: root_path, icon: "tachometer-alt" },
+      { name: "ダッシュボード", type: :link, url: root_path, icon: "tachometer-alt" },
       { name: "管理", type: :section },
       { name: "メンバー", type: :dropdown, icon: "users", items: [
         { name: "一覧", url: root_path },

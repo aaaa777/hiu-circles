@@ -49,202 +49,85 @@ main.main
             | Hubは大学の情報を一つにまとめるためのアプリケーションです。
 
           .d-flex.justify-content-center
-            a.btn-get-started[href="#about"]
-              | まずはユーザー登録
+            = link_to 'ユーザー登録', new_user_registration_path, class: 'btn-get-started'
+              / | まずはユーザー登録
             / a.glightbox.btn-watch-video.d-flex.align-items-center[href="https://www.youtube.com/watch?v=Y7f98aduVJ8"]
               i.bi.bi-play-circle
               span
                 | Watch Video
-
-  section#hero.hero.section
-    .container
-      .row.gy-4
-        .col-lg-7.order-2.order-lg-1.d-flex.flex-column.justify-content-center
-          - hero_title = [ \
-            "サークルを一元管理。\n提出書類は一括出力。", # まともなキャッチコピー \
-            "あれ？\nまだExcelで管理してる？", # 煽り \
-            "おまえの苦労をずっと見ていたぞ\n本当によく頑張ったな", # トラ \
-            "検知：サークル管理\n推奨：CircleHubの導入", # ニーアオートマタ \
-            "LINEメールDiscordSlack。\n…どれで連絡すればいい？", # 普通 \
-            "私はCircleHub。\nあなたを守ります。", # ベイマックス \
-            "メールとかダルいし、\nサークル運営はつらい。", # 慣れ慣れしい \
-            "あ、それ。\nCircleHubで出来ます。", # 普通 \
-          ].sample
-          h1
-            - hero_title.split("\n").each do |line|
-              = line
-              br
-          p
-            / = hero_desc
-            | サークルの書類提出やイベント告知管理って結構大変。
-            br
-            | 面倒なことはCircleHubに任せてしまいましょう。
-
-          .d-flex
-            a.btn-get-started[href="#about"]
-              | まずはユーザー登録
-            / a.glightbox.btn-watch-video.d-flex.align-items-center[href="https://www.youtube.com/watch?v=Y7f98aduVJ8"]
-              i.bi.bi-play-circle
-              span
-                | Watch Video
-        .col-lg-5.order-1.order-lg-2.hero-img
-          img.img-fluid[src=asset_path("scaffold-theme/circlehub-hero-1000x800.png") alt=""]
   section#about.about.section
     .container.section-title[data-aos="fade-up"]
       h2
-        | CircleHubの紹介
+        | サービス一覧
       p
-        | CircleHubとは何か、何のために作られたのかでしょうか。
-    .container[data-aos="fade-up"]
+        | Hubが提供しているサービスを紹介します。
+    .container.pb-5[data-aos="fade-up"]
       .row.gx-0
         .col-lg-6.d-flex.align-items-center[data-aos="zoom-out" data-aos-delay="200"]
-          img.img-fluid[src=asset_path("scaffold-theme/about.jpg") alt=""]
+          img.img-fluid[src=asset_path("scaffold-theme/circlehub-900x300.png") alt=""]
         .col-lg-6.d-flex.flex-column.justify-content-center[data-aos="fade-up" data-aos-delay="200"]
           .content
             h3
-              | About CircleHub
+              | 団体・サークルを一元管理
             h2
-              | CircleHubとは？
+              | CircleHub
             p
-              | CircleHubはサークルの運営を効率化するためのアプリケーションです。サークルの新規作成、部員の管理、書類の提出などを一元管理できます。私自身が部長としてサークル活動をする中で紙の手続きやExcel管理が面倒だと感じたことからこのアプリケーションを開発しました。まだまだ開発中なのでこれからにご期待ください。
-            / .text-center.text-lg-start
-              a.btn-read-more.d-inline-flex.align-items-center.justify-content-center.align-self-center[href="#"]
+              | CircleHubはサークルの運営を効率化するためのアプリケーションです。サークルの新規作成、部員の管理、書類の提出などを一元管理できます。
+            .text-center.text-lg-start
+              = link_to about_circles_path, class: 'btn-read-more d-inline-flex align-items-center justify-content-center align-self-center' do
                 span
-                  | Read More
+                  | CircleHub紹介ページへ
                 i.bi.bi-arrow-right
-  section#features.features.section
-    .container.section-title[data-aos="fade-up"]
-      h2
-        | CircleHubで出来ること
-      p
-        | サークル運営に必要な機能を大きく分けて紹介します。
-    .container
-      ul.nav.nav-tabs.row.g-2.d-flex[data-aos="fade-up" data-aos-delay="100"]
-        li.nav-item.col-3
-          a.nav-link.active.show[data-bs-toggle="tab" data-bs-target="#features-tab-1"]
-            h4
-              | 団体管理
-        li.nav-item.col-3
-          a.nav-link[data-bs-toggle="tab" data-bs-target="#features-tab-2"]
-            h4
-              | 申請管理
-        li.nav-item.col-3
-          a.nav-link[data-bs-toggle="tab" data-bs-target="#features-tab-3"]
-            h4
-              | 書類管理
-        li.nav-item.col-3
-          a.nav-link[data-bs-toggle="tab" data-bs-target="#features-tab-4"]
-            h4
-              | カスタム
-      .tab-content[data-aos="fade-up" data-aos-delay="200"]
 
-        #features-tab-1.tab-pane.fade.active.show
-          .row
-            .col-lg-6.order-2.order-lg-1.mt-3.mt-lg-0.d-flex.flex-column.justify-content-center
-              h3
-                | 団体の管理を一元化
-              p.fst-italic
-                |  右上の「サークル新規作成」ボタンから団体を作成できます。団体名、活動内容、活動場所などを入力してください。 
-              ul
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | 現在・過去のメンバーを管理
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | メンバーの役職を設定
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | 連絡・イベント告知を一元化して発信
-            .col-lg-6.order-1.order-lg-2.text-center
-              img.img-fluid[src=asset_path("scaffold-theme/working-1.jpg") alt=""]
-        #features-tab-2.tab-pane.fade
-          .row
-            .col-lg-6.order-2.order-lg-1.mt-3.mt-lg-0.d-flex.flex-column.justify-content-center
-              h3
-                | 新規部員向けの申請を受け付ける
-              p.fst-italic
-                |  ダッシュボードから新規部員向けの申請を設定できます。
-              ul
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | 仮入部や退部の申請はCircleHubで自動化
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | 申請の状況を一元管理
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.
-            .col-lg-6.order-1.order-lg-2.text-center
-              img.img-fluid[src=asset_path("scaffold-theme/working-2.jpg") alt=""]
-        #features-tab-3.tab-pane.fade
-          .row
-            .col-lg-6.order-2.order-lg-1.mt-3.mt-lg-0.d-flex.flex-column.justify-content-center
-              h3
-                | 提出書類を出力する
-              ul
+    .container.pb-5.newshub-color[data-aos="fade-up"]
+      .row.gx-0
+        .col-lg-6.d-flex.align-items-center[data-aos="zoom-out" data-aos-delay="200"]
+          img.img-fluid[src=asset_path("scaffold-theme/newshub-tekitou.png") alt=""]
+        .col-lg-6.d-flex.flex-column.justify-content-center[data-aos="fade-up" data-aos-delay="200"]
+          .content
+            h3
+              | ニュースを一元管理
+            h2
+              | NewsHub
+            p
+              | NewsHubは大学のニュースを一元管理するためのアプリケーションです。大学のイベント告知、部活動報告、学生の活動報告などを一元管理できます。
+            .text-center.text-lg-start
+              = link_to about_circles_path, class: 'btn-read-more d-inline-flex align-items-center justify-content-center align-self-center' do
+                span
+                  | NewsHub紹介ページへ
+                i.bi.bi-arrow-right
 
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | Ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | Duis aute irure dolor in reprehenderit in voluptate velit.
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | Provident mollitia neque rerum asperiores dolores quos qui a. Ipsum neque dolor voluptate nisi sed.
-              p.fst-italic
-                |  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            .col-lg-6.order-1.order-lg-2.text-center
-              img.img-fluid[src=asset_path("scaffold-theme/working-3.jpg") alt=""]
-        #features-tab-4.tab-pane.fade
-          .row
-            .col-lg-6.order-2.order-lg-1.mt-3.mt-lg-0.d-flex.flex-column.justify-content-center
-              h3
-                | 自由にカスタムする
-              p.fst-italic
-                |  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-              ul
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | Ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | Duis aute irure dolor in reprehenderit in voluptate velit.
-                li
-                  i.bi.bi-check2-all
-                  span
-                    | Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.
-            .col-lg-6.order-1.order-lg-2.text-center
-              img.img-fluid[src=asset_path("scaffold-theme/working-4.jpg") alt=""]
+    .container.pb-5.apihub-color[data-aos="fade-up"]
+      .row.gx-0
+        .col-lg-6.d-flex.align-items-center[data-aos="zoom-out" data-aos-delay="200"]
+          img.img-fluid[src=asset_path("scaffold-theme/apihub-tekitou.png") alt=""]
+        .col-lg-6.d-flex.flex-column.justify-content-center[data-aos="fade-up" data-aos-delay="200"]
+          .content
+            h3
+              | 開発者向けHubサービス
+            h2
+              | APIHub
+            p
+              | APIHubはHubサービスを利用するためのAPIを提供するためのアプリケーションです。開発優先度は低めですが、要望があれば開発します。
+            .text-center.text-lg-start
+              = link_to about_circles_path, class: 'btn-read-more d-inline-flex align-items-center justify-content-center align-self-center' do
+                span
+                  | APIHub紹介ページへ
+                i.bi.bi-arrow-right
+  
   section#call-to-action.call-to-action.section.light-background
     img[src=asset_path("scaffold-theme/cta-bg.jpg") alt=""]
       .container
         .row[data-aos="zoom-in" data-aos-delay="100"]
           .col-xl-9.text-center.text-xl-start
             h3
-              | CircleHub【ベータ版】を利用してみる
+              | Hub【ベータ版】を利用してみる
             p
-              | CircleHubは開発中のアプリケーションです。以下のボタンから登録を行い、ご利用ください。
+              | Hubサービスは開発中のアプリケーションです。以下のボタンから登録を行い、ご利用ください。
           .col-xl-3.cta-btn-container.text-center
-            a.cta-btn.align-middle[href="#"]
-              | アカウント作成
+            = link_to 'ユーザー登録', new_user_registration_path, class: 'cta-btn align-middle'
 
-  section#services.services.section
+  / section#services.services.section
     .container.section-title[data-aos="fade-up"]
       h2
         | その他のサービス一覧
@@ -296,39 +179,8 @@ main.main
         | 開発メンバーを募集しています。興味のある方はぜひ。
     .container[data-aos="fade-up" data-aos-delay="100"]
       .text-center.text-lg-start.justify-content-center.d-flex
-        a.cta-btn.align-self-center[href="#"]
-          | 技術スタックはこちら 
+        = link_to '技術スタックはこちら', new_user_registration_path, class: 'cta-btn align-self-center'
 
-  section#team.team.section.light-background
-    .container.section-title[data-aos="fade-up"]
-      h2
-        | 開発メンバー
-      p
-        | バックエンドにはRuby on Rails 7、フロントエンドにはBootstrap 4と5を利用したテンプレートを使用しています。
-    .container
-      .row.gy-5.justify-content-center
-        - [ \
-            { image: "scaffold-theme/team/aaaa777_b_600x600.png", name: "Yuma Sawai / aaaa777", role: "経営情報学部システム情報学科", socials: [ \
-              { icon: 'bi-github', url: 'https://github.com/aaaa777' }, \
-              # { icon: 'bi-twitter-x', url: 'https://twitter.com/aaaa777' }, \
-              # { icon: 'bi-facebook', url: 'https://www.facebook.com/aaaa777' }, \
-              # { icon: 'bi-instagram', url: 'https://www.instagram.com/aaaa777' } \
-            ]}, \
-            # { image: "scaffold-theme/team/noname_h_600x600.png", name: "開発メンバーを募集中", role: "必要スキル: Ruby on Rails" }, \
-          ].each_with_index do |member, i|
-          .col-lg-4.col-md-6[data-aos="fade-up" data-aos-delay=(member[:delay] || (100 + i * 100))]
-            .member
-              .pic
-                img.img-fluid[src=asset_path(member[:image]) alt=""]
-              .member-info
-                h4
-                  = member[:name]
-                span
-                  = member[:role]
-                .social
-                  - member[:socials]&.each do |social|
-                    a[href=social[:url]]
-                      i.bi[class="#{social[:icon]}"]
   section#contact.contact.section
     .container.section-title[data-aos="fade-up"]
       h2

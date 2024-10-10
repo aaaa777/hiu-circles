@@ -1,6 +1,6 @@
 class CircleAdminsController < AdminController
-  before_action :load_circle_data
-  before_action :load_sidebar_data
+  # before_action :load_circle_data
+  # before_action :load_sidebar_data
 
   def index
   end
@@ -47,11 +47,11 @@ class CircleAdminsController < AdminController
     @circle = current_circle
   end
 
-  def load_sidebar_data
-    @sidebar_left_title = sidebar_left_title
-    @sidebar_left_subtitle = sidebar_left_subtitle
-    @sidebar_left_items = sidebar_left_items
-  end
+  # def load_sidebar_data
+  #   @sidebar_left_title = sidebar_left_title
+  #   @sidebar_left_subtitle = sidebar_left_subtitle
+  #   @sidebar_left_items = sidebar_left_items
+  # end
 
   def current_circle
     Circle.find(params[:id])

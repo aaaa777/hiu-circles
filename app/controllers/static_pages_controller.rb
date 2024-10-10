@@ -12,6 +12,9 @@ class StaticPagesController < HubThemeController
     @routes = Rails.application.routes.routes
   end
 
+  def tech_stack
+  end
+
   def wip
   end
 

@@ -1,0 +1,31 @@
+main.main
+  section#team.team.section.light-background
+    .container.section-title[data-aos="fade-up"]
+      h2
+        | 開発メンバー
+      p
+        | バックエンドにはRuby on Rails 7、フロントエンドにはBootstrap 4と5を利用したテンプレートを使用しています。
+    .container
+      .row.gy-5.justify-content-center
+        - [ \
+            { image: "scaffold-theme/team/aaaa777_b_600x600.png", name: "Yuma Sawai / aaaa777", role: "経営情報学部システム情報学科", socials: [ \
+              { icon: 'bi-github', url: 'https://github.com/aaaa777' }, \
+              # { icon: 'bi-twitter-x', url: 'https://twitter.com/aaaa777' }, \
+              # { icon: 'bi-facebook', url: 'https://www.facebook.com/aaaa777' }, \
+              # { icon: 'bi-instagram', url: 'https://www.instagram.com/aaaa777' } \
+            ]}, \
+            # { image: "scaffold-theme/team/noname_h_600x600.png", name: "開発メンバー募集中", role: "必要スキル: Ruby on Rails" }, \
+          ].each_with_index do |member, i|
+          .col-lg-4.col-md-6[data-aos="fade-up" data-aos-delay=(member[:delay] || (100 + i * 100))]
+            .member
+              .pic
+                img.img-fluid[src=asset_path(member[:image]) alt=""]
+              .member-info
+                h4
+                  = member[:name]
+                span
+                  = member[:role]
+                .social
+                  - member[:socials]&.each do |social|
+                    a[href=social[:url]]
+                      i.bi[class="#{social[:icon]}"]
