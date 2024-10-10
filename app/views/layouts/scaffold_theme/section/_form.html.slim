@@ -1,0 +1,28 @@
+/ 共通化出来てないので未使用
+section#contact.contact.section
+  .container.section-title[data-aos="fade-up"]
+    h2
+      = title
+    p
+      = description
+  .container[data-aos="fade-up" data-aos-delay="100"]
+    .row.gy-4.justify-content-center
+      .col-lg-10
+        form.php-email-form[action="forms/contact.php" method="post" data-aos="fade-up" data-aos-delay="200"]
+          .row.gy-4
+            .col-12
+              label
+                | 団体名
+              input.form-control[type="text" name="name" placeholder="Computer Operating Club" required=""]
+            .col-12
+              label
+                | 団体の説明（任意）
+              textarea.form-control[name="message" rows="6" placeholder="技術的な交流をするサークルです！" required=""]
+            .col-12.text-center
+              .loading
+                | Loading
+              .error-message
+              .sent-message
+                | Your message has been sent. Thank you!
+              button[type="submit"]
+                | Send Message

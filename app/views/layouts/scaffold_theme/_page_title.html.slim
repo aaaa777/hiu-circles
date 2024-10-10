@@ -4,8 +4,12 @@
       nav.breadcrumbs
         ol
           - @breadcrumbs.each do |breadcrumb|
-            li
-              = link_to breadcrumb[:url] do
+            - if breadcrumb[:disabled]
+              li.current
                 = breadcrumb[:name]
+            - else
+              li
+                = link_to breadcrumb[:url] do
+                  = breadcrumb[:name]
       h1
         = @page_title

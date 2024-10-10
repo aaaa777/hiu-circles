@@ -1,21 +1,60 @@
-= render 'layouts/form/form', title: 'Circle-Hub', title_link: circles_path, description: 'Circle-Hubに団体を作成します。'
-  - if @circle.errors.any?
-    ul
-      - @circle.errors.full_messages.each do |message|
-        li = message
-  = form_with model: @circle, method: :post, url: circles_path do |f|
-    = f.label :name
-    .input-group.mb-3
-      = f.text_field :name, autofocus: true, class: "form-control", placeholder: "団体名"
-      / .input-group-append
-      /   .input-group-text
-      /     span.fas.fa-signature
-    = f.label :description
-    .input-group.mb-3
-      = f.text_area :description, class: "form-control", placeholder: "団体の説明"
-      / .input-group-append
-      /   .input-group-text
-      /     span.fas.fa-envelope
-    .row
-      .col-12
-        = f.submit '団体を作成', class: 'btn btn-primary btn-block'
+/ = render 'layouts/form/form', title: 'Circle-Hub', title_link: circles_path, description: 'Circle-Hubに団体を作成します。'
+/   - if @circle.errors.any?
+/     ul
+/       - @circle.errors.full_messages.each do |message|
+/         li = message
+/   = form_with model: @circle, method: :post, url: circles_path do |f|
+/     = f.label :name
+/     .input-group.mb-3
+/       = f.text_field :name, autofocus: true, class: "form-control", placeholder: "団体名"
+/       / .input-group-append
+/       /   .input-group-text
+/       /     span.fas.fa-signature
+/     = f.label :description
+/     .input-group.mb-3
+/       = f.text_area :description, class: "form-control", placeholder: "団体の説明"
+/       / .input-group-append
+/       /   .input-group-text
+/       /     span.fas.fa-envelope
+/     .row
+/       .col-12
+/         = f.submit '団体を作成', class: 'btn btn-primary btn-block'
+
+/ = render 'layouts/scaffold_theme/section/form', title: '新規団体作成', description: '新規団体を作成します。', resource: @circle
+section#contact.contact.section
+  .container.section-title[data-aos="fade-up"]
+    h2
+      | 新規団体作成
+    p
+      | 新規団体を作成します。
+  .container[data-aos="fade-up" data-aos-delay="100"]
+    .row.gy-4.justify-content-center
+      .col-lg-10
+        = form_with model: @circle, method: :post, url: circles_path do |f|
+          .row.gy-4
+            .col-12
+              = f.label :name
+              = f.text_field :name, class: "form-control", placeholder: "例）Computer Operating Club", required: true
+            .col-12
+              = f.label :description
+              = f.text_area :description, class: "form-control", placeholder: "例）技術的な交流をするサークルです！"
+            .col-12.text-center
+              = f.submit '新規作成', class: 'btn btn-primary btn-block'
+        / form.php-email-form[action="forms/contact.php" method="post" data-aos="fade-up" data-aos-delay="200"]
+        /   .row.gy-4
+        /     .col-12
+        /       label
+        /         | 団体名
+        /       input.form-control[type="text" name="name" placeholder="Computer Operating Club" required=""]
+        /     .col-12
+        /       label
+        /         | 団体の説明（任意）
+        /       textarea.form-control[name="message" rows="6" placeholder="技術的な交流をするサークルです！" required=""]
+        /     .col-12.text-center
+        /       .loading
+        /         | Loading
+        /       .error-message
+        /       .sent-message
+        /         | Your message has been sent. Thank you!
+        /       button[type="submit"]
+        /         | Send Message

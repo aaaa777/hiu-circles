@@ -18,17 +18,17 @@ main.main
   = render "layouts/scaffold_theme/section/portfolio", \
     title: "団体一覧", \
     description: "掲載の団体が全てではありませんのでご注意ください。", \
-    filter_headers: [{ name: "全て", filter: "*", active: true }, { name: "文化部", filter: ".filter-app" }, { name: "運動部", filter: ".filter-product" }, { name: "その他", filter: ".filter-branding" }], \
+    filter_headers: [{ name: "全て", filter: "*", active: true }, { name: "文化部", filter: ".filter-culture" }, { name: "運動部", filter: ".filter-sport" }, { name: "その他", filter: ".filter-other" }], \
     items: [ \
-      { image_url: asset_path("scaffold-theme/portfolio/app-1.jpg"), title: "サークル1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "app" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/product-1.jpg"), title: "部活1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "product" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/branding-1.jpg"), title: "その他1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "branding" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/books-1.jpg"), title: "サークル2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "app" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/app-2.jpg"), title: "部活2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "product" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/product-2.jpg"), title: "その他2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "branding" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/branding-2.jpg"), title: "サークル3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "app" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/books-2.jpg"), title: "部活3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "product" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/app-3.jpg"), title: "その他3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "branding" } \
+      { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "Computer Operating Club", description: "コンピュータ関連のことならなんでもします！", filter: "culture" }, \
+      { image_url: asset_path("scaffold-theme/portfolio/sport.png"), title: "部活1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "sport" }, \
+      { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "その他1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "culture" }, \
+      { image_url: asset_path("scaffold-theme/portfolio/sport.png"), title: "部活2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "sport" }, \
+      { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "サークル2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "culture" }, \
+      { image_url: asset_path("scaffold-theme/portfolio/other.png"), title: "学生実行委員会", description: "情報大学の企画・運営をします。", filter: "other" }, \
+      { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "その他2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "culture" }, \
+      { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "サークル3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "culture" }, \
+      { image_url: asset_path("scaffold-theme/portfolio/sport.png"), title: "部活3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "sport" }, \
     ]
   
   section#call-to-action.call-to-action.section.light-background

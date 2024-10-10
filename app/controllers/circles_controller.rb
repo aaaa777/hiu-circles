@@ -27,16 +27,24 @@ class CirclesController < CircleHubController
 
   protected
 
+  def page_title
+    {
+      'index' => '団体一覧',
+      'show' => '団体詳細',
+      'new' => '団体新規作成',
+    }[action_name] || action_name.titleize
+  end
+
   def breadcrumbs
-    if ['about', 'index', 'show', 'new'].include?(action_name)
+    if ['show', 'new'].include?(action_name)
       [
-        { name: "home", url: about_circles_path, },
-        { name: action_name.titleize, url: '#', disabled: true },
+        { name: "団体一覧", url: circles_path, },
+        { name: page_title, disabled: true },
       ]
-    elsif action_name == 'about'
-      [
-        { name: "home", url: about_circles_path, disabled: true },
-      ]
+    # elsif action_name == 'index'
+    #   [
+    #     { name: "団体一覧", disabled: true },
+    #   ]
     else
       nil
     end

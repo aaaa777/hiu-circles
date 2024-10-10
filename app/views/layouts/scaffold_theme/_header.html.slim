@@ -15,7 +15,7 @@ header#header.header.d-flex.align-items-center.sticky-top
                 = header[:name]
           - when :dropdown
             li.dropdown
-              = link_to "#" do
+              = link_to header[:url], method: (header[:method] || :get) do
                 = header[:name]
                 i.bi.bi-chevron-down.toggle-dropdown
               / a[href="#"]
@@ -30,7 +30,7 @@ header#header.header.d-flex.align-items-center.sticky-top
                         = item[:name]
                   - when :dropdown
                     li.dropdown
-                      a[href="#"]
+                      = link_to item[:url], method: (header[:method] || :get) do
                         = item[:name]
                         i.bi.bi-chevron-down.toggle-dropdown
                       ul
