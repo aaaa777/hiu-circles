@@ -22,7 +22,8 @@ test:
 production:
   <<: *default
   # database: db/production.sqlite3 変更
-  host: host.docker.internal
+  # host: host.docker.internal
+  host: db
   port: 5432
   database: circlehub_production
   username: <%= Rails.application.credentials.postgres&.dig(:username) %>
