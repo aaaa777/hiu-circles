@@ -11,8 +11,8 @@ services:
       - db
     extra_hosts:
       - "host.docker.internal:host-gateway"
-    profiles:
-      - production # docker compose up --build --profile production で起動
+    # profiles:
+    #   - production # docker compose up --build --profile production で起動
   # mac-build: # WIP
   #   image: registry.docker.com/library/ruby:3.3.4-slim
   #   volumes:
