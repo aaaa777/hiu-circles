@@ -6,16 +6,19 @@ header#header.header.d-flex.align-items-center.sticky-top
         img[src=asset_path("scaffold-theme/circlehub-900x300.png") alt=""]
         / = title
     nav#navmenu.navmenu
-      ul
+      ul[data-turbolinks="false"]
         - @header_list.each do |header|
           - case header[:type]
           - when :link
             li
-              a[href=header[:url]]
+              = link_to header[:url] do
                 = header[:name]
           - when :dropdown
             li.dropdown
-              a[href="#"]
+              = link_to "#", data: { turbo: false } do
+                = header[:name]
+                i.bi.bi-chevron-down.toggle-dropdown
+              / a[href="#"]
                 = header[:name]
                 i.bi.bi-chevron-down.toggle-dropdown
               ul
@@ -23,7 +26,7 @@ header#header.header.d-flex.align-items-center.sticky-top
                   - case item[:type] 
                   - when :link
                     li
-                      a[href=item[:url]]
+                      = link_to item[:url], data: { turbo: false } do
                         = item[:name]
                   - when :dropdown
                     li.dropdown
@@ -35,9 +38,9 @@ header#header.header.d-flex.align-items-center.sticky-top
                           li
                             a[href=subitem[:url]]
                               = subitem[:name]
-        li
-          a[href="#contact"]
-            | Contact
+        / li
+        /   a[href="#contact"]
+        /     | Contact
       i.mobile-nav-toggle.d-xl-none.bi.bi-list
     / .header-social-links
       a.twitter[href="#"]

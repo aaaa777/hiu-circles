@@ -4,8 +4,10 @@ class HubThemeController < ApplicationController
   protected
 
   def load_data
+    @page_title = action_name.titleize
     @header_list = header_list
     @footer_list = footer_list
+    @breadcrumbs = breadcrumbs
   end
 
   def store_location?
@@ -14,6 +16,7 @@ class HubThemeController < ApplicationController
 
   def header_list
     [
+      { name: "About", type: :link, url: about_circles_path, },
       { name: "Circle-Hub", type: :link, url: circles_path, },
       { name: "News-Hub", type: :link, url: circles_path, },
       { name: "API-Hub", type: :link, url: circles_path, },
@@ -60,5 +63,9 @@ class HubThemeController < ApplicationController
         { name: "Contact", type: :link, url: circles_path, },
       ]},
     ]
+  end
+
+  def breadcrumbs
+    nil
   end
 end

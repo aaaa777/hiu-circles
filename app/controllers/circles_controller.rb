@@ -27,6 +27,15 @@ class CirclesController < CircleHubController
 
   protected
 
+  def breadcrumbs
+    if action_name != 'about'
+      [
+        { name: "About", url: about_circles_path, },
+        { name: action_name.titleize, url: '#' },
+      ]
+    end
+  end
+
   # def load_data
   #   @header_list = header_list
   # end

@@ -1,0 +1,11 @@
+- if @breadcrumbs
+  .page-title.light-background
+    .container
+      nav.breadcrumbs
+        ol
+          - @breadcrumbs.each do |breadcrumb|
+            li
+              = link_to breadcrumb[:url] do
+                = breadcrumb[:name]
+    h1
+      = @page_title
