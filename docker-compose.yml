@@ -9,8 +9,8 @@ services:
       # - .:/rails
     depends_on:
       - db
-    extra_hosts:
-      - "host.docker.internal:host-gateway"
+    # extra_hosts:
+    #   - "host.docker.internal:host-gateway"
     # profiles:
     #   - production # docker compose up --build --profile production で起動
   # mac-build: # WIP
