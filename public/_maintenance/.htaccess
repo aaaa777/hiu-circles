@@ -1,0 +1,2 @@
+RewriteEngine on
+RewriteRule ^(.+)?$ https://%{HTTP_HOST} [L,R=302]

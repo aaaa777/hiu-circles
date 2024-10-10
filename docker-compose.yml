@@ -11,6 +11,8 @@ services:
       - db
     extra_hosts:
       - "host.docker.internal:host-gateway"
+    profiles:
+      - production # docker compose up --build --profile production で起動
   # mac-build: # WIP
   #   image: registry.docker.com/library/ruby:3.3.4-slim
   #   volumes:
@@ -36,6 +38,8 @@ services:
       POSTGRES_USER: circlehub
       POSTGRES_PASSWORD: "${POSTGRES_PASSWORD?`POSTGRES_PASSWORD`をセットしてください}"
       POSTGRES_DB: circlehub_production
+    ports:
+      - "15432:5432"
     volumes:
       - db-data:/var/lib/postgresql/data
       - .db/postgres/init:/docker-entrypoint-initdb.d
