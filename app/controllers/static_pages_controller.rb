@@ -1,4 +1,4 @@
-class StaticPagesController < ApplicationController
+class StaticPagesController < HubThemeController
   def home
   end
 

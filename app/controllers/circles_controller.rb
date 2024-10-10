@@ -28,11 +28,17 @@ class CirclesController < CircleHubController
   protected
 
   def breadcrumbs
-    if action_name != 'about'
+    if ['about', 'index', 'show', 'new'].include?(action_name)
       [
-        { name: "About", url: about_circles_path, },
-        { name: action_name.titleize, url: '#' },
+        { name: "home", url: about_circles_path, },
+        { name: action_name.titleize, url: '#', disabled: true },
       ]
+    elsif action_name == 'about'
+      [
+        { name: "home", url: about_circles_path, disabled: true },
+      ]
+    else
+      nil
     end
   end
 
