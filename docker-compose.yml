@@ -3,8 +3,8 @@ services:
     build: .
     # ports:
     #  - "5001:5000"
-    environment:
-      RAILS_MASTER_KEY: "${RAILS_MASTER_KEY?`RAILS_MASTER_KEY`をセットしてください}"
+    # environment:
+    #   RAILS_MASTER_KEY: "${RAILS_MASTER_KEY?`RAILS_MASTER_KEY`をセットしてください}"
     # volumes:
       # - .:/rails
     depends_on:
