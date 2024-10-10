@@ -20,10 +20,11 @@ class HubThemeController < ApplicationController
 
   def header_list
     [
-      { name: "ホーム", type: :link, url: about_circles_path, },
-      { name: "Circle-Hub", type: :link, url: circles_path, },
-      { name: "News-Hub", type: :link, url: circles_path, },
-      { name: "API-Hub", type: :link, url: circles_path, },
+      { name: "ホーム", type: :link, url: root_path, },
+      { name: "CircleHub", type: :link, url: circles_path, },
+      { name: "NewsHub", type: :link, url: circles_path, },
+      { name: "APIHub", type: :link, url: circles_path, },
+      { name: "Q&A", type: :link, url: q_and_a_path, },
       *(
         user_signed_in? ?
           [

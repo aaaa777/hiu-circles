@@ -1,0 +1,17 @@
+main.main
+  = render "layouts/scaffold_theme/section/qa", \
+      title: "一般的な質問", \
+      description: "以下は、よくある質問です。ご不明な点があれば、お気軽にお問い合わせください。", \
+      qa_list: [ \
+        { question: "これは北海道情報大学の公式サイトですか？", answer: "いいえ、Computer Operating Clubの部長が個人で作成したものです。非公式なサイトであることに注意してください", active: true }, \
+        { question: "CircleHubを利用するにはどうすればいいですか？", answer: "現在はまだリリース出来る状態ではないためご利用できません。希望する方はリリースが完了時に連絡いたします。学籍番号`2112097`の学内メールアドレス宛にその旨を連絡ください。", }, \
+        { question: "この機能がほしい！/ここにバグがありました！", answer: "学籍番号`2112097`の学内メールアドレス宛に連絡をください。希望通りの対応が出来ない可能性もありますが、ご了承ください。", }, \
+      ]
+
+  = render "layouts/scaffold_theme/section/qa", \
+    title: "CircleHubについて", \
+    description: "", \
+    qa_list: [ \
+      { question: "全ての団体が掲載されていますか？", answer: "いいえ、CircleHubに登録されている団体のみです。", }, \
+      { question: "どうすればここに掲載が出来ますか？", answer: "CircleHubにてユーザー登録を行い、団体の作成をしてください。" }, \
+    ]

@@ -1,9 +1,10 @@
-section#faq.faq.section.light-background
+section#faq.faq.section
   .container.section-title[data-aos="fade-up"]
     h2
-      | よくある質問
-    p
-      | 以下は、よくある質問です。ご不明な点があれば、お気軽にお問い合わせください。
+      = title
+    - if description.present?
+      p
+        = description
   .container
     .row.justify-content-center
       .col-lg-8
