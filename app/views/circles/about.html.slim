@@ -41,7 +41,7 @@ main.main
 
           .d-flex
             = link_to 'サークル一覧', circles_path, class: 'btn-get-started me-2'
-            = link_to 'ユーザー登録', new_user_registration_path, class: 'btn-get-started me-2'
+            = link_to 'ユーザー登録', new_user_registration_path, method: :delete, class: 'btn-get-started me-2'
             / a.glightbox.btn-watch-video.d-flex.align-items-center[href="https://www.youtube.com/watch?v=Y7f98aduVJ8"]
               i.bi.bi-play-circle
               span
@@ -258,7 +258,7 @@ main.main
       { question: "この機能がほしい！/ここにバグがありました！", answer: "学籍番号`2112097`の学内メールアドレス宛に連絡をください。希望通りの対応が出来ない可能性もありますが、ご了承ください。", }, \
     ]                  
   = render "layouts/scaffold_theme/section/qa", title: "関連する質問", description: nil, qa_list: qa_list
-  section#services.services.section
+  / section#services.services.section
     .container.section-title[data-aos="fade-up"]
       h2
         | その他のサービス一覧

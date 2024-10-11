@@ -33,11 +33,11 @@ class HubThemeController < ApplicationController
       *(
         user_signed_in? ?
           [
-            { name: "アカウント", type: :dropdown, items: [
+            # { name: "アカウント", type: :dropdown, items: [
               { name: "プロフィール", type: :link, url: user_path(current_user), },
               # { name: "自分の所属団体", type: :link, url: circles_path, },
               { name: "ログアウト", type: :link, url: destroy_user_session_path, method: :delete, },
-            ]},
+            # ]},
           ]
         :
           [

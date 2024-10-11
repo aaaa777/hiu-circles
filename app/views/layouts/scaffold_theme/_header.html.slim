@@ -13,14 +13,11 @@ header#header.header.d-flex.align-items-center.sticky-top
           - case header[:type]
           - when :link
             li
-              = link_to header[:url], method: (header[:method] || :get) do
+              = link_to header[:url], data: { turbo_method: (header[:method] || :get) }, method: (header[:method] || :get) do
                 = header[:name]
           - when :dropdown
             li.dropdown
-              = link_to header[:url], method: (header[:method] || :get) do
-                = header[:name]
-                i.bi.bi-chevron-down.toggle-dropdown
-              / a[href="#"]
+              = link_to header[:url], data: { turbo_method: (header[:method] || :get) }, method: (header[:method] || :get) do
                 = header[:name]
                 i.bi.bi-chevron-down.toggle-dropdown
               ul
@@ -28,17 +25,17 @@ header#header.header.d-flex.align-items-center.sticky-top
                   - case item[:type] 
                   - when :link
                     li
-                      = link_to item[:url], method: (item[:method] || :get) do
+                      = link_to item[:url], data: { turbo_method: (item[:method] || :get) }, method: (item[:method] || :get) do
                         = item[:name]
                   - when :dropdown
                     li.dropdown
-                      = link_to item[:url], method: (item[:method] || :get) do
+                      = link_to item[:url], data: { turbo_method: (item[:method] || :get) }, method: (item[:method] || :get) do
                         = item[:name]
                         i.bi.bi-chevron-down.toggle-dropdown
                       ul
                         - item[:items].each do |subitem|
                           li
-                            = link_to item[:url], data: { turbo_method: (subitem[:method] || :get) } do
+                            = link_to item[:url], data: { turbo_method: (subitem[:method] || :get) }, method: (subitem[:method] || :get) do
                               = subitem[:name]
         / li
         /   a[href="#contact"]

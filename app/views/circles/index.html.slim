@@ -1,47 +1,29 @@
-/ h1 StaticPages#home
-/ p Find me in app/views/static_pages/home.html.slim
-/ p サークル概要ページ
+= render "layouts/scaffold_theme/section/portfolio", \
+  title: "CircleHub掲載団体一覧(サンプル)", \
+  description: "全ての公認団体を掲載しているわけではありませんのでご注意ください。", \
+  filter_headers: [{ name: "全て", filter: "*", active: true }, { name: "文化部", filter: ".filter-culture" }, { name: "運動部", filter: ".filter-sport" }, { name: "その他", filter: ".filter-other" }], \
+  items: [ \
+    { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "Computer Operating Club", description: "コンピュータ関連のことならなんでもします！", filter: "culture" }, \
+    { image_url: asset_path("scaffold-theme/portfolio/sport.png"), title: "部活1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "sport" }, \
+    { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "その他1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "culture" }, \
+    { image_url: asset_path("scaffold-theme/portfolio/sport.png"), title: "部活2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "sport" }, \
+    { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "サークル2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "culture" }, \
+    { image_url: asset_path("scaffold-theme/portfolio/other.png"), title: "学生実行委員会", description: "情報大学の企画・運営をします。", filter: "other" }, \
+    { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "その他2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "culture" }, \
+    { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "サークル3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "culture" }, \
+    { image_url: asset_path("scaffold-theme/portfolio/sport.png"), title: "部活3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "sport" }, \
+  ]
 
-/ h2 サークル新規作成
-/ = link_to 'サークル新規作成', new_circle_path
-
-/ h2 サークル名
-/ - @circles.each do |circle|
-/   a[href=circle_path(circle)]
-/     = circle.name
-/   br
-
-
-  
-
-main.main
-  = render "layouts/scaffold_theme/section/portfolio", \
-    title: "CircleHub掲載団体一覧", \
-    description: "全ての公認団体を掲載しているわけではありませんのでご注意ください。", \
-    filter_headers: [{ name: "全て", filter: "*", active: true }, { name: "文化部", filter: ".filter-culture" }, { name: "運動部", filter: ".filter-sport" }, { name: "その他", filter: ".filter-other" }], \
-    items: [ \
-      { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "Computer Operating Club", description: "コンピュータ関連のことならなんでもします！", filter: "culture" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/sport.png"), title: "部活1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "sport" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "その他1", description: "Lorem ipsum, dolor sit amet consectetur", filter: "culture" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/sport.png"), title: "部活2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "sport" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "サークル2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "culture" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/other.png"), title: "学生実行委員会", description: "情報大学の企画・運営をします。", filter: "other" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "その他2", description: "Lorem ipsum, dolor sit amet consectetur", filter: "culture" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/culture.png"), title: "サークル3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "culture" }, \
-      { image_url: asset_path("scaffold-theme/portfolio/sport.png"), title: "部活3", description: "Lorem ipsum, dolor sit amet consectetur", filter: "sport" }, \
-    ]
-  
-  section#call-to-action.call-to-action.section
-    / img[src=asset_path("scaffold-theme/cta-bg.jpg") alt=""]
-    .container
-      .row[data-aos="zoom-in" data-aos-delay="100"]
-        .col-xl-9.text-center.text-xl-start
-          h3
-            | 所属団体がリストにありませんか？
-          p
-            | もしリストにない場合は、今すぐCircleHubで作成しましょう！
-            | 作成は簡単で、すぐに他のユーザーに公開されます。
-        .col-xl-3.cta-btn-container.text-center
-          a.cta-btn.align-middle[href="#"]
-            | 団体を作成する
-  
+section#call-to-action.call-to-action.section
+  / img[src=asset_path("scaffold-theme/cta-bg.jpg") alt=""]
+  .container
+    .row[data-aos="zoom-in" data-aos-delay="100"]
+      .col-xl-9.text-center.text-xl-start
+        h3
+          | 所属団体がリストにありませんか？
+        p
+          | もしリストにない場合は、今すぐCircleHubで作成しましょう！
+          | 作成は簡単で、すぐに他のユーザーに公開されます。
+      .col-xl-3.cta-btn-container.text-center
+        a.cta-btn.align-middle[href="#"]
+          | 団体を作成する

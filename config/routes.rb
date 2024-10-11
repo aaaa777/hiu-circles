@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   # get 'static_pages/home'
   # get 'static_pages/help'
   devise_for :users
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy' # workaroud
+  end
   # root to: 'static_pages#redirect_to_root'
   # get :home, to: 'static_pages#home'
   root to: 'static_pages#home'
