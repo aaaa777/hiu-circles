@@ -45,6 +45,11 @@ Rails.application.routes.draw do
 
   scope :news_hub do
     root to: 'static_pages#wip', as: :news_hub_root
+    resources :news do
+      collection do
+        get :about
+      end
+    end
   end
 
   scope :api_hub do

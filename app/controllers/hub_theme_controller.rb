@@ -9,6 +9,11 @@ class HubThemeController < ApplicationController
     @header_list = header_list
     @footer_list = footer_list
     @breadcrumbs = breadcrumbs
+    @hub_image = hub_image
+  end
+
+  def hub_image
+    nil
   end
 
   def store_location?

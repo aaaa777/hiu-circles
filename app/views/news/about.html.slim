@@ -1,17 +1,10 @@
-main.main
+main.main.newshub-color
   section#hero.hero.section
     .container
       .row.gy-4
         .col-lg-7.order-2.order-lg-1.d-flex.flex-column.justify-content-center
           - hero_title = [ \
-            "サークルを一元管理。\n提出書類は一括出力。", # まともなキャッチコピー \
-            "あれ？\nまだExcelで管理してる？", # 煽り \
-            "おまえの苦労をずっと見ていたぞ\n本当によく頑張ったな", # トラ \
-            "検知：サークル管理\n推奨：CircleHubの導入", # ニーアオートマタ \
-            "LINEメールDiscordSlack。\n…どれで連絡すればいい？", # 普通 \
-            "私はCircleHub。\nあなたを守ります。", # ベイマックス \
-            "メールとかダルいし、\nサークル運営はつらい。", # 慣れ慣れしい \
-            "あ、それ。\nCircleHubで出来ます。", # 普通 \
+              "ニュースをまとめて通知", \
           ].sample
           h1
             - hero_title.split("\n").each do |line|
@@ -19,12 +12,9 @@ main.main
               br
           p
             / = hero_desc
-            | サークルの書類提出やイベント告知管理って結構大変。
-            br
-            | 面倒なことはCircleHubに任せてしまいましょう。
+            | ポータルの確認はNewsHubで！
 
           .d-flex
-            = link_to 'サークル一覧', circles_path, class: 'btn-get-started me-2'
             = link_to 'ユーザー登録', new_user_registration_path, method: :delete, class: 'btn-get-started me-2'
             / a.glightbox.btn-watch-video.d-flex.align-items-center[href="https://www.youtube.com/watch?v=Y7f98aduVJ8"]
               i.bi.bi-play-circle
@@ -37,7 +27,7 @@ main.main
       h2
         | 概要紹介
       p
-        | CircleHubはどんなサービス？
+        | どんなサービス？
     .container[data-aos="fade-up"]
       .row.gx-0
         .col-lg-6.d-flex.align-items-center[data-aos="zoom-out" data-aos-delay="200"]
@@ -45,11 +35,11 @@ main.main
         .col-lg-6.d-flex.flex-column.justify-content-center[data-aos="fade-up" data-aos-delay="200"]
           .content
             h3
-              | About CircleHub
+              | About NewsHub
             h2
-              | CircleHubとは？
+              | NewsHubとは？
             p
-              | CircleHubはサークルの運営を効率化するためのアプリケーションです。サークルの新規作成、部員の管理、書類の提出などを一元管理できます。私自身が部長としてサークル活動をする中で紙の手続きやExcel管理が面倒だと感じたことからこのアプリケーションを開発しました。まだまだ開発中なのでこれからにご期待ください。
+              | NewsHubはサークルの運営を効率化するためのアプリケーションです。サークルの新規作成、部員の管理、書類の提出などを一元管理できます。私自身が部長としてサークル活動をする中で紙の手続きやExcel管理が面倒だと感じたことからこのアプリケーションを開発しました。まだまだ開発中なのでこれからにご期待ください。
             / .text-center.text-lg-start
               a.btn-read-more.d-inline-flex.align-items-center.justify-content-center.align-self-center[href="#"]
                 span
@@ -185,105 +175,7 @@ main.main
               | CircleHubは開発中のアプリケーションです。以下のボタンから登録を行い、ご利用ください。
           .col-xl-3.cta-btn-container.text-center
             a.cta-btn.align-middle[href="#"]
-              | アカウント作成
-
-
-
-  / section#pricing.pricing.section
-    .container.section-title[data-aos="fade-up"]
-      h2
-        | ご利用料金
-      / p
-        | 料金プランをご紹介します。
-    .container
-      .row.g-4.g-lg-0.justify-content-center
-        - [ \
-            { name: "無料プラン", price: 0, delay: 100, featured: true }, \
-            # { name: "Business Plan", price: 29, delay: 200, featured: true }, \
-            # { name: "Developer Plan", price: 49, delay: 300, featured: false } \
-          ].each do |plan|
-          .col-lg-6[data-aos="zoom-in" data-aos-delay=plan[:delay] class=(plan[:featured] ? "featured" : "")]
-            .pricing-item
-              h3
-                = plan[:name]
-              h4
-                = plan[:price]
-                sub
-                  | 円
-                span
-                  |  / month
-              ul
-                li
-                  i.bi.bi-check
-                  span
-                    | CircleHubのフル機能
-                li
-                  i.bi.bi-check
-                  span
-                    | NewsHubのフル機能
-                li
-                  i.bi.bi-check
-                  span
-                    | 無制限のAPIHubの利用
-                li
-                  i.bi.bi-check
-                  span
-                    | COCからの多大なる感謝
-                / li.na
-                  i.bi.bi-check
-                  span
-                    | Massa ultricies mi quis hendrerit
-              .text-center
-                a.buy-btn[href="#"]
-                  | アカウント作成
-  - qa_list = [ \
-      { question: "これは北海道情報大学の公式サイトですか？", answer: "いいえ、Computer Operating Clubの部長が個人で作成したものです。非公式なサイトであることに注意してください", active: true }, \
-      { question: "CircleHubを利用するにはどうすればいいですか？", answer: "現在はまだリリース出来る状態ではないためご利用できません。希望する方はリリースが完了時に連絡いたします。学籍番号`2112097`の学内メールアドレス宛にその旨を連絡ください。", }, \
-      { question: "この機能がほしい！/ここにバグがありました！", answer: "学籍番号`2112097`の学内メールアドレス宛に連絡をください。希望通りの対応が出来ない可能性もありますが、ご了承ください。", }, \
-    ]                  
-  = render "layouts/scaffold_theme/section/qa", title: "関連する質問", description: nil, qa_list: qa_list
-  / section#services.services.section
-    .container.section-title[data-aos="fade-up"]
-      h2
-        | その他のサービス一覧
-      p
-        | HIUHubではあらゆるデータを一元化するサービス群を制作しています。
-    .container
-      .row.gy-4
-        .col-xl-3.col-md-6.d-flex[data-aos="fade-up" data-aos-delay="100"]
-          .w-100.service-item.position-relative
-            .icon
-              i.bi.bi-people.icon
-            h4
-              = link_to "CircleHub", about_circles_path, class: "stretched-link"
-            p
-              | 開発中。サークルの管理や申請を一元化し、サークル運営を効率化します。
-        .col-xl-3.col-md-6.d-flex[data-aos="fade-up" data-aos-delay="200"]
-          .w-100.service-item.position-relative
-            .icon
-              i.bi.bi-newspaper.icon
-            h4
-              = link_to "NewsHub", news_hub_root_path, class: "stretched-link"
-            p
-              | 開発中。サークルの活動報告やイベント告知を一元化します。
-        .col-xl-3.col-md-6.d-flex[data-aos="fade-up" data-aos-delay="300"]
-          .w-100.service-item.position-relative
-            .icon
-              i.bi.bi-megaphone.icon
-            h4
-              a.stretched-link[href=""]
-                | APIHub
-            p
-              | 開発中。各サービスを利用するAPIを提供します。
-        .col-xl-3.col-md-6.d-flex[data-aos="fade-up" data-aos-delay="400"]
-          .w-100.service-item.position-relative
-            .icon
-              i.bi.bi-motherboard.icon
-            h4
-              a.stretched-link[href=""]
-                | その他
-            p
-              | 希望があれば新しいサービスを開発します。ご要望をお寄せください。
+              | アカウント作成             
   section#developer-invitation.developer-invitation.section.light-background.call-to-action
     .container.section-title[data-aos="fade-up"]
       h2
@@ -294,37 +186,6 @@ main.main
       .text-center.text-lg-start.justify-content-center.d-flex
         a.cta-btn.align-self-center[href="#"]
           | 技術スタックはこちら 
-
-  / section#team.team.section.light-background
-    .container.section-title[data-aos="fade-up"]
-      h2
-        | 開発メンバー
-      p
-        | バックエンドにはRuby on Rails 7、フロントエンドにはBootstrap 4と5を利用したテンプレートを使用しています。
-    .container
-      .row.gy-5.justify-content-center
-        - [ \
-            { image: "scaffold-theme/team/aaaa777_b_600x600.png", name: "Yuma Sawai / aaaa777", role: "経営情報学部システム情報学科", socials: [ \
-              { icon: 'bi-github', url: 'https://github.com/aaaa777' }, \
-              # { icon: 'bi-twitter-x', url: 'https://twitter.com/aaaa777' }, \
-              # { icon: 'bi-facebook', url: 'https://www.facebook.com/aaaa777' }, \
-              # { icon: 'bi-instagram', url: 'https://www.instagram.com/aaaa777' } \
-            ]}, \
-            # { image: "scaffold-theme/team/noname_h_600x600.png", name: "開発メンバーを募集中", role: "必要スキル: Ruby on Rails" }, \
-          ].each_with_index do |member, i|
-          .col-lg-4.col-md-6[data-aos="fade-up" data-aos-delay=(member[:delay] || (100 + i * 100))]
-            .member
-              .pic
-                img.img-fluid[src=asset_path(member[:image]) alt=""]
-              .member-info
-                h4
-                  = member[:name]
-                span
-                  = member[:role]
-                .social
-                  - member[:socials]&.each do |social|
-                    a[href=social[:url]]
-                      i.bi[class="#{social[:icon]}"]
   section#contact.contact.section
     .container.section-title[data-aos="fade-up"]
       h2

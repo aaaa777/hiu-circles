@@ -27,6 +27,10 @@ class CirclesController < CircleHubController
 
   protected
 
+  def hub_image
+    "scaffold-theme/circlehub-900x300.png"
+  end
+
   def page_title
     {
       'index' => '団体一覧',
