@@ -8,4 +8,7 @@ class User < ApplicationRecord
   has_many :members
   has_many :user_role_relations
   has_many :roles, through: :user_role_relations
+
+  VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]*do-johodai\.ac\.jp\z/i
+  validates :email, presence: true, uniqueness: true, format: { with: VALID_EMAIL_REGEX }#, message: "do-johodai.ac.jpで終わるメールアドレスを入力してください"
 end

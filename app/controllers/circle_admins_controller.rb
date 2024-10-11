@@ -1,5 +1,5 @@
 class CircleAdminsController < AdminController
-  # before_action :load_circle_data
+  before_action :load_circle_data
   # before_action :load_sidebar_data
 
   def index
