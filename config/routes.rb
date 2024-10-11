@@ -43,6 +43,10 @@ Rails.application.routes.draw do
   constraints host: Rails.configuration.x.domains.admin_hub do
     resources :site_admin
   end
+
+  constraints host: 'r.nomiss.net' do
+    get :c24s, to: 'makeshift_redirect#redirect'
+  end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
