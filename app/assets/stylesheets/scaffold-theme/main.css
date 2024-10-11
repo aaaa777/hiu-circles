@@ -589,6 +589,19 @@ h6 {
 }
 
 /*--------------------------------------------------------------
+# Announcements
+--------------------------------------------------------------*/
+
+.container .announcement {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+  padding: 10px 0;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/*--------------------------------------------------------------
 # Preloader
 --------------------------------------------------------------*/
 #preloader {

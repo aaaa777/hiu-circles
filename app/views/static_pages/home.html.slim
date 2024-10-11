@@ -17,10 +17,8 @@
 /     = circle.name
 /   br
 
-
-  
-
 main.main
+  / section 
   section#hero.hero.section
     .container
       .row.gy-4.justify-content-center.text-center
@@ -30,10 +28,10 @@ main.main
               = link_to about_circles_path do
                 img.img-fluid[src=asset_path("scaffold-theme/circlehub-900x300.png") alt=""]
             .col-6.col-md-4.p-1
-              = link_to about_circles_path do
+              = link_to news_hub_root_path do
                 img.img-fluid[src=asset_path("scaffold-theme/newshub-tekitou.png") alt=""]
             .col-6.col-md-4.p-1
-              = link_to about_circles_path do
+              = link_to api_hub_root_path do
                 img.img-fluid[src=asset_path("scaffold-theme/apihub-tekitou.png") alt=""]
           - hero_title = [ \
             "大学の全てを一つに。", # まともなキャッチコピー \
@@ -110,7 +108,7 @@ main.main
             p
               | APIHubはHubサービスを利用するためのAPIを提供するためのアプリケーションです。開発優先度は低めですが、要望があれば開発します。
             .text-center.text-lg-start
-              = link_to about_circles_path, class: 'btn-read-more d-inline-flex align-items-center justify-content-center align-self-center' do
+              = link_to api_hub_root_path, class: 'btn-read-more d-inline-flex align-items-center justify-content-center align-self-center' do
                 span
                   | APIHub紹介ページへ
                 i.bi.bi-arrow-right

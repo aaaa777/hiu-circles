@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   # before_action :sign_in_required
   before_action :configure_permitted_parameters, if: :devise_controller?
+  before_action  :save_redirect_to
   after_action  :store_location
 
   protected
@@ -27,5 +28,11 @@ class ApplicationController < ActionController::Base
 
   def store_location?
     false
+  end
+
+  def save_redirect_to
+    if params[:redirect_to].present?
+      session[:previous_url] = params[:redirect_to]
+    end
   end
 end

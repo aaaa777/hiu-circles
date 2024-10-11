@@ -40,6 +40,14 @@ Rails.application.routes.draw do
     end
   end
 
+  scope :news_hub do
+    root to: 'static_pages#wip', as: :news_hub_root
+  end
+
+  scope :api_hub do
+    root to: 'static_pages#wip', as: :api_hub_root
+  end
+
   constraints host: Rails.configuration.x.domains.admin_hub do
     resources :site_admin
   end

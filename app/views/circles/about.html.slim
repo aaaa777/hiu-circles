@@ -40,8 +40,8 @@ main.main
             | 面倒なことはCircleHubに任せてしまいましょう。
 
           .d-flex
-            a.btn-get-started[href="#about"]
-              | まずはユーザー登録
+            = link_to 'サークル一覧', circles_path, class: 'btn-get-started me-2'
+            = link_to 'ユーザー登録', new_user_registration_path, class: 'btn-get-started me-2'
             / a.glightbox.btn-watch-video.d-flex.align-items-center[href="https://www.youtube.com/watch?v=Y7f98aduVJ8"]
               i.bi.bi-play-circle
               span
@@ -51,9 +51,9 @@ main.main
   section#about.about.section
     .container.section-title[data-aos="fade-up"]
       h2
-        | CircleHubの紹介
+        | 概要紹介
       p
-        | CircleHubとは何か、何のために作られたのかでしょうか。
+        | CircleHubはどんなサービス？
     .container[data-aos="fade-up"]
       .row.gx-0
         .col-lg-6.d-flex.align-items-center[data-aos="zoom-out" data-aos-delay="200"]
@@ -74,7 +74,7 @@ main.main
   section#features.features.section
     .container.section-title[data-aos="fade-up"]
       h2
-        | CircleHubで出来ること
+        | 出来ること
       p
         | サークル運営に必要な機能を大きく分けて紹介します。
     .container
@@ -271,8 +271,7 @@ main.main
             .icon
               i.bi.bi-people.icon
             h4
-              a.stretched-link[href=""]
-                | CircleHub
+              = link_to "CircleHub", about_circles_path, class: "stretched-link"
             p
               | 開発中。サークルの管理や申請を一元化し、サークル運営を効率化します。
         .col-xl-3.col-md-6.d-flex[data-aos="fade-up" data-aos-delay="200"]
@@ -280,8 +279,7 @@ main.main
             .icon
               i.bi.bi-newspaper.icon
             h4
-              a.stretched-link[href=""]
-                | NewsHub
+              = link_to "NewsHub", news_hub_root_path, class: "stretched-link"
             p
               | 開発中。サークルの活動報告やイベント告知を一元化します。
         .col-xl-3.col-md-6.d-flex[data-aos="fade-up" data-aos-delay="300"]
