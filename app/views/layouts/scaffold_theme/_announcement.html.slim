@@ -2,7 +2,8 @@
   / .py-2.announcement.text-center
   .py-2.alert.alert-warning.text-center
     / p
-    | 現在Hubはプレビュー版です。機能はご利用いただけません。
+    | 現在Hubはプレビュー版です。ユーザー登録のみ可能です。蒼天祭の情報は
+    = link_to 'こちら', sotensai_2024_path
   - if flash[:notice]
     .py-2.alert.alert-info.text-center
       = flash[:notice]

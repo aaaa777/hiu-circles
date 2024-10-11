@@ -1,0 +1,36 @@
+main.main 
+  section
+    .container.section-title[data-aos="fade-up"]
+      h2
+        | 蒼天祭
+      p
+        | 2024年度の蒼天祭についての情報を掲載しています。
+    .container[data-aos="fade-up" data-aos-delay="100"]
+      .row.gy-4.justify-content-center
+        .col-lg-10
+          .row.gy-4
+            .col-12
+              h3
+                | 蒼天祭2024 メインポスター
+            .col-12
+              img.img_fluid[src=asset_path("scaffold-theme/sotensai2024-main.png") alt=""]
+            .col-12
+              h3
+                | 情報一元化アプリの紹介
+            .col-12
+              p
+                | Hubという学内の情報一元化Webアプリを制作しています。ゼミ室11にて展示をしますので興味のある方は是非お越しください。
+            .col-12.text-center
+                = link_to "Hubについて詳しく", root_path, class: "btn btn-primary btn-block"
+            .col-12
+              h3
+                | 開発者コミュニティの紹介
+            .col-12
+              p 
+                | Hubの開発に興味がある方は、以下の開発者コミュニティに参加してください。
+            .col-12
+              .row.justify-content-center
+                .col-4
+                  img.img-fluid[src=asset_path("scaffold-theme/QR_cocdiscord.png") alt=""]
+            .col-12.text-center
+              = link_to "開発者コミュニティに参加", root_path, class: "btn btn-primary btn-block"

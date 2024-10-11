@@ -15,6 +15,9 @@ class StaticPagesController < HubThemeController
   def tech_stack
   end
 
+  def sotensai_2024
+  end
+
   def wip
   end
 

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   # root to: 'static_pages#redirect_to_root'
   # get :home, to: 'static_pages#home'
   root to: 'static_pages#home'
+  get :sotensai_2024, to: 'static_pages#sotensai_2024'
 
   scope :hub do
     resources :users
