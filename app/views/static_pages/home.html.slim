@@ -28,10 +28,10 @@ main.main
               = link_to about_circles_path do
                 img.img-fluid[src=asset_path("scaffold-theme/circlehub-900x300.png") alt=""]
             .col-6.col-md-4.p-1
-              = link_to news_hub_root_path do
+              = link_to newshub_root_path do
                 img.img-fluid[src=asset_path("scaffold-theme/newshub-tekitou.png") alt=""]
             .col-6.col-md-4.p-1
-              = link_to api_hub_root_path do
+              = link_to apihub_root_path do
                 img.img-fluid[src=asset_path("scaffold-theme/apihub-tekitou.png") alt=""]
           - hero_title = [ \
             "大学の全てを一つに。", # まともなキャッチコピー \
@@ -90,7 +90,7 @@ main.main
             p
               | NewsHubは大学のニュースを一元管理するためのアプリケーションです。大学のイベント告知、部活動報告、学生の活動報告などを一元管理できます。
             .text-center.text-lg-start
-              = link_to about_news_index_path, class: 'btn-read-more d-inline-flex align-items-center justify-content-center align-self-center' do
+              = link_to about_newshub_news_index_path, class: 'btn-read-more d-inline-flex align-items-center justify-content-center align-self-center' do
                 span
                   | NewsHub紹介ページへ
                 i.bi.bi-arrow-right
@@ -108,7 +108,7 @@ main.main
             p
               | APIHubはHubサービスを利用するためのAPIを提供するためのアプリケーションです。開発優先度は低めですが、要望があれば開発します。
             .text-center.text-lg-start
-              = link_to api_hub_root_path, class: 'btn-read-more d-inline-flex align-items-center justify-content-center align-self-center' do
+              = link_to apihub_root_path, class: 'btn-read-more d-inline-flex align-items-center justify-content-center align-self-center' do
                 span
                   | APIHub紹介ページへ
                 i.bi.bi-arrow-right

@@ -1,0 +1,228 @@
+main.main.newshub-color
+  section#hero.hero.section
+    .container
+      .row.gy-4
+        .col-lg-7.order-2.order-lg-1.d-flex.flex-column.justify-content-center
+          - hero_title = [ \
+              "ニュースをまとめて通知", \
+          ].sample
+          h1
+            - hero_title.split("\n").each do |line|
+              = line
+              br
+          p
+            / = hero_desc
+            | ポータルの確認はNewsHubで！
+
+          .d-flex
+            = link_to 'ユーザー登録', new_user_registration_path, method: :delete, class: 'btn-get-started me-2'
+            / a.glightbox.btn-watch-video.d-flex.align-items-center[href="https://www.youtube.com/watch?v=Y7f98aduVJ8"]
+              i.bi.bi-play-circle
+              span
+                | Watch Video
+        .col-lg-5.order-1.order-lg-2.hero-img
+          img.img-fluid[src=asset_path("scaffold-theme/circlehub-hero-1000x800.png") alt=""]
+  section#about.about.section
+    .container.section-title[data-aos="fade-up"]
+      h2
+        | 概要紹介
+      p
+        | どんなサービス？
+    .container[data-aos="fade-up"]
+      .row.gx-0
+        .col-lg-6.d-flex.align-items-center[data-aos="zoom-out" data-aos-delay="200"]
+          img.img-fluid[src=asset_path("scaffold-theme/about.jpg") alt=""]
+        .col-lg-6.d-flex.flex-column.justify-content-center[data-aos="fade-up" data-aos-delay="200"]
+          .content
+            h3
+              | About NewsHub
+            h2
+              | NewsHubとは？
+            p
+              | NewsHubはサークルの運営を効率化するためのアプリケーションです。サークルの新規作成、部員の管理、書類の提出などを一元管理できます。私自身が部長としてサークル活動をする中で紙の手続きやExcel管理が面倒だと感じたことからこのアプリケーションを開発しました。まだまだ開発中なのでこれからにご期待ください。
+            / .text-center.text-lg-start
+              a.btn-read-more.d-inline-flex.align-items-center.justify-content-center.align-self-center[href="#"]
+                span
+                  | Read More
+                i.bi.bi-arrow-right
+  section#features.features.section
+    .container.section-title[data-aos="fade-up"]
+      h2
+        | 出来ること
+      p
+        | 大学のニュース管理で利用できる機能を紹介します。
+    .container
+      ul.nav.nav-tabs.row.g-2.d-flex[data-aos="fade-up" data-aos-delay="100"]
+        li.nav-item.col-3
+          a.nav-link.active.show[data-bs-toggle="tab" data-bs-target="#features-tab-1"]
+            h4
+              | 大学ニュース管理
+        li.nav-item.col-3
+          a.nav-link[data-bs-toggle="tab" data-bs-target="#features-tab-2"]
+            h4
+              | サークル通知管理
+        li.nav-item.col-3
+          a.nav-link[data-bs-toggle="tab" data-bs-target="#features-tab-3"]
+            h4
+              | 通知方法カスタム
+        li.nav-item.col-3
+          a.nav-link[data-bs-toggle="tab" data-bs-target="#features-tab-4"]
+            h4
+              | 投稿機能
+      .tab-content[data-aos="fade-up" data-aos-delay="200"]
+
+        #features-tab-1.tab-pane.fade.active.show
+          .row
+            .col-lg-6.order-2.order-lg-1.mt-3.mt-lg-0.d-flex.flex-column.justify-content-center
+              h3
+                | ポータルを見る必要なし！
+              p.fst-italic
+                |  大学のWebポータルに通知機能を付加してニュースをすぐに見られます。
+              ul
+                li
+                  i.bi.bi-check2-all
+                  span
+                    | ポータルに投稿された情報を確認
+                li
+                  i.bi.bi-check2-all
+                  span
+                    | 先生の出勤情報も取得可能
+            .col-lg-6.order-1.order-lg-2.text-center
+              img.img-fluid[src=asset_path("scaffold-theme/working-1.jpg") alt=""]
+        #features-tab-2.tab-pane.fade
+          .row
+            .col-lg-6.order-2.order-lg-1.mt-3.mt-lg-0.d-flex.flex-column.justify-content-center
+              h3
+                | サークルで情報を共有したいときに
+              p.fst-italic
+                | LINEやDiscordやメールやその他、それぞれが希望する形でニュースを配信することができます。
+              ul
+                li
+                  i.bi.bi-check2-all
+                  span
+                    | サークルの定期連絡などを設定可能
+                li
+                  i.bi.bi-check2-all
+                  span
+                    | 役職ごとに配信なども可能
+            .col-lg-6.order-1.order-lg-2.text-center
+              img.img-fluid[src=asset_path("scaffold-theme/working-2.jpg") alt=""]
+        #features-tab-3.tab-pane.fade
+          .row
+            .col-lg-6.order-2.order-lg-1.mt-3.mt-lg-0.d-flex.flex-column.justify-content-center
+              h3
+                | 通知方法をカスタマイズ
+              ul
+                li
+                  i.bi.bi-check2-all
+                  span
+                    | LINEやDiscordやメールやその他、それぞれが希望する形で通知を設定することができます。
+                li
+                  i.bi.bi-check2-all
+                  span
+                    | 同時に複数に設定することも可能！
+            .col-lg-6.order-1.order-lg-2.text-center
+              img.img-fluid[src=asset_path("scaffold-theme/working-3.jpg") alt=""]
+        #features-tab-4.tab-pane.fade
+          .row
+            .col-lg-6.order-2.order-lg-1.mt-3.mt-lg-0.d-flex.flex-column.justify-content-center
+              h3
+                | 自分から情報を発信
+              p.fst-italic
+                | ポータルでは大学の情報しか発信できませんが、NewsHubなら自由に情報発信ができます。
+              ul
+                li
+                  i.bi.bi-check2-all
+                  span
+                    | サークルでの対外発信に利用可能
+            .col-lg-6.order-1.order-lg-2.text-center
+              img.img-fluid[src=asset_path("scaffold-theme/working-4.jpg") alt=""]
+  section#call-to-action.call-to-action.section.light-background
+    img[src=asset_path("scaffold-theme/cta-bg.jpg") alt=""]
+      .container
+        .row[data-aos="zoom-in" data-aos-delay="100"]
+          .col-xl-9.text-center.text-xl-start
+            h3
+              | NewsHub【プレビュー版】を利用してみる
+            p
+              | NewsHubは開発中のアプリケーションです。以下のボタンから登録を行い、ご利用ください。
+          .col-xl-3.cta-btn-container.text-center
+            a.cta-btn.align-middle[href="#"]
+              | アカウント作成
+  section#developer-invitation.developer-invitation.section.light-background.call-to-action
+    .container.section-title[data-aos="fade-up"]
+      h2
+        | 開発メンバー募集中！
+      p
+        | 開発メンバーを募集しています。興味のある方はぜひ。
+    .container[data-aos="fade-up" data-aos-delay="100"]
+      .text-center.text-lg-start.justify-content-center.d-flex
+        a.cta-btn.align-self-center[href="#"]
+          | 技術スタックはこちら 
+  = render 'layouts/scaffold_theme/section/contact'
+  / section#contact.contact.section
+    .container.section-title[data-aos="fade-up"]
+      h2
+        | お問い合わせ
+      p
+        | こちらのフォームは現在機能していません。送信しても何も起こらないのでご注意ください。
+    .container[data-aos="fade-up" data-aos-delay="100"]
+      .row.gy-4
+        .col-lg-6
+          .row.gy-4
+            .col-md-6
+              .info-item[data-aos="fade" data-aos-delay="200"]
+                i.bi.bi-geo-alt
+                h3
+                  | Address
+                p
+                  | A108 Adam Street
+                p
+                  | New York, NY 535022
+            .col-md-6
+              .info-item[data-aos="fade" data-aos-delay="300"]
+                i.bi.bi-telephone
+                h3
+                  | Call Us
+                p
+                  | +1 5589 55488 55
+                p
+                  | +1 6678 254445 41
+            .col-md-6
+              .info-item[data-aos="fade" data-aos-delay="400"]
+                i.bi.bi-envelope
+                h3
+                  | Email Us
+                p
+                  | info@example.com
+                p
+                  | contact@example.com
+            .col-md-6
+              .info-item[data-aos="fade" data-aos-delay="500"]
+                i.bi.bi-clock
+                h3
+                  | Open Hours
+                p
+                  | Monday - Friday
+                p
+                  | 9:00AM - 05:00PM
+        .col-lg-6
+          form.php-email-form[action="forms/contact.php" method="post" data-aos="fade-up" data-aos-delay="200"]
+            .row.gy-4
+              .col-md-6
+                input.form-control[type="text" name="name" placeholder="Your Name" required=""]
+              .col-md-6
+                input.form-control[type="email" name="email" placeholder="Your Email" required=""]
+              .col-12
+                input.form-control[type="text" name="subject" placeholder="Subject" required=""]
+              .col-12
+                textarea.form-control[name="message" rows="6" placeholder="Message" required=""]
+              .col-12.text-center
+                .loading
+                  | Loading
+                .error-message
+                .sent-message
+                  | Your message has been sent. Thank you!
+                button[type="submit"]
+                  | Send Message
+

@@ -1,4 +1,4 @@
-class NewsController < HubThemeController
+class NewsHub::NewsController < HubThemeController
   def about
   end
 

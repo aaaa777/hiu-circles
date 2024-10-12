@@ -32,7 +32,7 @@ class HubThemeController < ApplicationController
     [
       { name: "ホーム", type: :link, url: root_path, },
       { name: "CircleHub", type: :link, url: circles_path, },
-      { name: "NewsHub", type: :link, url: about_news_index_path, },
+      { name: "NewsHub", type: :link, url: about_newshub_news_index_path, },
       { name: "APIHub", type: :link, url: wip_path, },
       { name: "Q&A", type: :link, url: q_and_a_path, },
       *(

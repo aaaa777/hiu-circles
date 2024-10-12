@@ -44,8 +44,8 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :news_hub do
-    root to: 'static_pages#wip', as: :news_hub_root
+  namespace :newshub do
+    root to: 'static_pages#about'
     resources :news do
       collection do
         get :about
@@ -53,8 +53,25 @@ Rails.application.routes.draw do
     end
   end
 
-  scope :api_hub do
-    root to: 'static_pages#wip', as: :api_hub_root
+  namespace :apihub do
+    root to: 'static_pages#wip'
+    namespace :api do
+      namespace :v1 do
+        namespace :system do
+          resources :news
+        end
+
+        namespace :circlehub do
+        end
+
+        namespace :newshub do
+          resources :news
+        end
+
+        namespace :apihub do
+        end
+      end
+    end
   end
 
   constraints host: Rails.configuration.x.domains.admin_hub do
@@ -66,10 +83,7 @@ Rails.application.routes.draw do
     get :c2024s, to: 'makeshift_redirect#redirect'
   end
 
-  namespace :api do
-    namespace :v1 do
-    end
-  end
+
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
