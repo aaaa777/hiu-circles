@@ -309,7 +309,8 @@ main.main
                   - member[:socials]&.each do |social|
                     a[href=social[:url]]
                       i.bi[class="#{social[:icon]}"]
-  section#contact.contact.section
+  = render "layouts/scaffold_theme/section/contact"                      
+  / section#contact.contact.section
     .container.section-title[data-aos="fade-up"]
       h2
         | お問い合わせ

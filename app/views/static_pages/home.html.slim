@@ -179,7 +179,8 @@ main.main
       .text-center.text-lg-start.justify-content-center.d-flex
         = link_to '技術スタックはこちら', tech_stack_path, class: 'cta-btn align-self-center'
 
-  section#contact.contact.section
+  = render 'layouts/scaffold_theme/section/contact'
+  / section#contact.contact.section
     .container.section-title[data-aos="fade-up"]
       h2
         | お問い合わせ

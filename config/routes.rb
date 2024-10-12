@@ -63,6 +63,7 @@ Rails.application.routes.draw do
 
   constraints host: 'r.nomiss.net' do
     get :c24s, to: 'makeshift_redirect#redirect'
+    get :c2024s, to: 'makeshift_redirect#redirect'
   end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

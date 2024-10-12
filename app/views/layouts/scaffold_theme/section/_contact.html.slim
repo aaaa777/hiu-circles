@@ -1,0 +1,57 @@
+section#contact.contact.section
+  .container.section-title[data-aos="fade-up"]
+    h2
+      | お問い合わせ
+    p
+      | こちらのフォームは現在機能していません。送信しても何も起こらないのでご注意ください。
+  .container[data-aos="fade-up" data-aos-delay="100"]
+    .row.gy-4
+      .col-lg-3
+        .row.gy-4
+          / .col-md-6
+            .info-item[data-aos="fade" data-aos-delay="200"]
+              i.bi.bi-geo-alt
+              h3
+                | Location
+              p
+                | 部室棟 A106
+          / .col-md-6
+            .info-item[data-aos="fade" data-aos-delay="300"]
+              i.bi.bi-telephone
+              h3
+                | Call Us
+              p
+                | +1 5589 55488 55
+              p
+          .col-md-
+            .info-item[data-aos="fade" data-aos-delay="400"]
+              / i.bi.bi-envelope
+              h3
+                | メール
+              p
+                | s2112097@s.do-johodai.ac.jp
+            .info-item[data-aos="fade" data-aos-delay="500"]
+              / i.bi.bi-clock
+              h3
+                | 開発Discord
+              div
+                img.img-fluid[src=asset_path("scaffold-theme/QR_cocdiscord.png") alt=""]
+      .col-lg-9
+        form.php-email-form[action="forms/contact.php" method="post" data-aos="fade-up" data-aos-delay="200"]
+          .row.gy-4
+            .col-md-6
+              input.form-control[type="text" name="name" placeholder="Your Name" required=""]
+            .col-md-6
+              input.form-control[type="email" name="email" placeholder="Your Email" required=""]
+            .col-12
+              input.form-control[type="text" name="subject" placeholder="Subject" required=""]
+            .col-12
+              textarea.form-control[name="message" rows="6" placeholder="Message" required=""]
+            .col-12.text-center
+              .loading
+                | Loading
+              .error-message
+              .sent-message
+                | Your message has been sent. Thank you!
+              button[type="submit"]
+                | Send Message
