@@ -65,6 +65,11 @@ Rails.application.routes.draw do
     get :c24s, to: 'makeshift_redirect#redirect'
     get :c2024s, to: 'makeshift_redirect#redirect'
   end
+
+  namespace :api do
+    namespace :v1 do
+    end
+  end
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
