@@ -10,11 +10,11 @@ class Apihub::Api::V1::System::NewsController < Apihub::Api::SystemController
 
   private
 
-  def receiving_news_params
-    params.require(:receiving_news).permit(:user_id, :news_id)
-  end
+  # def receiving_news_params
+  #   params.require(:receiving_news).permit(:user_id, :news_id)
+  # end
 
   def create_params
-    params.require(:title).permit(:content, :link, :is_external, :visibility)
+    params.require(:news).permit(:title, :content, :link, :is_external, :visibility)
   end
 end

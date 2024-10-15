@@ -1,7 +1,4 @@
-class NewsHub::NewsController < HubThemeController
-  def about
-  end
-
+class Newshub::NewsController < HubThemeController
   def index
     @news = News.all
   end

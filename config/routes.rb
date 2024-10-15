@@ -48,7 +48,6 @@ Rails.application.routes.draw do
     root to: 'static_pages#about'
     resources :news do
       collection do
-        get :about
       end
     end
   end
@@ -58,14 +57,14 @@ Rails.application.routes.draw do
     namespace :api do
       namespace :v1 do
         namespace :system do
-          resources :news
+          resource :news, only: [:create]
         end
 
         namespace :circlehub do
         end
 
         namespace :newshub do
-          resources :news
+          resources :news, only: [:index, :show] # TODO: add more actions
         end
 
         namespace :apihub do
