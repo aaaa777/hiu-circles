@@ -1,9 +1,9 @@
 class HubThemeController < ApplicationController
-  before_action :load_data
+  before_action :load_hub_theme_data
 
   private
 
-  def load_data
+  def load_hub_theme_data
     @current_hub_link = current_hub_link
     @page_title = page_title
     @header_list = header_list

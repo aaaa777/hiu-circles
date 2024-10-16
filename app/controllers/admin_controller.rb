@@ -1,9 +1,9 @@
 class AdminController < LoginRequiredAreaController
-  before_action :load_data
+  before_action :load_admin_data
 
   private
 
-  def load_data
+  def load_admin_data
     @sidebar_left_title = sidebar_left_title
     @sidebar_left_subtitle = sidebar_left_subtitle
     @sidebar_left_items = sidebar_left_items
