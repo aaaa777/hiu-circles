@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_10_07_010521) do
+ActiveRecord::Schema[7.1].define(version: 2024_10_16_045256) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pgcrypto"
   enable_extension "plpgsql"
@@ -115,6 +115,26 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_07_010521) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "circle_id"
+    t.bigint "user_id"
+    t.index ["circle_id"], name: "index_news_on_circle_id"
+    t.index ["user_id"], name: "index_news_on_user_id"
+  end
+
+  create_table "news_user_visibility_relations", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "news_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["news_id"], name: "index_news_user_visibility_relations_on_news_id"
+    t.index ["user_id"], name: "index_news_user_visibility_relations_on_user_id"
+  end
+
+  create_table "notify_services", force: :cascade do |t|
+    t.string "name"
+    t.string "type"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "request_types", force: :cascade do |t|
@@ -165,6 +185,16 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_07_010521) do
     t.string "type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "user_notify_services_relations", force: :cascade do |t|
+    t.string "priority"
+    t.bigint "user_id", null: false
+    t.bigint "notify_service_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notify_service_id"], name: "index_user_notify_services_relations_on_notify_service_id"
+    t.index ["user_id"], name: "index_user_notify_services_relations_on_user_id"
   end
 
   create_table "user_site_role_relations", force: :cascade do |t|
@@ -218,11 +248,17 @@ ActiveRecord::Schema[7.1].define(version: 2024_10_07_010521) do
   add_foreign_key "member_circle_role_relations", "members"
   add_foreign_key "members", "circles"
   add_foreign_key "members", "users"
+  add_foreign_key "news", "circles"
+  add_foreign_key "news", "users"
+  add_foreign_key "news_user_visibility_relations", "news"
+  add_foreign_key "news_user_visibility_relations", "users"
   add_foreign_key "request_types", "circles"
   add_foreign_key "requests", "circles"
   add_foreign_key "requests", "request_types"
   add_foreign_key "requests", "users", column: "applicant_id"
   add_foreign_key "requests", "users", column: "approver_id"
+  add_foreign_key "user_notify_services_relations", "notify_services"
+  add_foreign_key "user_notify_services_relations", "users"
   add_foreign_key "user_site_role_relations", "site_roles"
   add_foreign_key "user_site_role_relations", "users"
 end

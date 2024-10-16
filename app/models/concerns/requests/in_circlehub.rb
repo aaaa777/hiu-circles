@@ -1,0 +1,3 @@
+module Requests::InCircle
+  
+end

@@ -1,0 +1,2 @@
+class UserNotifyServicesRelation < ApplicationRecord
+end
