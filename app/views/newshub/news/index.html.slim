@@ -1,5 +1,7 @@
 main.main.newshub-color
-  - @news.each do |n|
-    div
-      = n.title
-  = render 'layouts/scaffold_theme/section/list'
+  - resources = [ \
+      News.new(title: "サークル勧誘について", created_at: Time.current), \
+      News.new(title: "【履修登録関係】２０２４年度後期履修登録の取り消しについて（１０月２１日（月）９：００～２５日（金）１７：００）", is_external: true, created_at: Time.current), \
+      News.new(title: "年度後期履修登録の取り消しについて（１０月２１日（月）９：００～２５日（金）１７：００）", is_external: true, created_at: Time.current), \
+    ]
+  = render 'layouts/scaffold_theme/section/news_list', resources: resources

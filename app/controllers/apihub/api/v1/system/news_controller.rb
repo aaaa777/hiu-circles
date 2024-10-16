@@ -15,6 +15,6 @@ class Apihub::Api::V1::System::NewsController < Apihub::Api::SystemController
   # end
 
   def create_params
-    params.require(:news).permit(:title, :content, :link, :is_external, :visibility)
+    params.require(:news).permit(:title, :content, :link, :is_external, :publish_state)
   end
 end

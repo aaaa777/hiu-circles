@@ -1,0 +1,75 @@
+section#news.news.section
+  .container.section-title[data-aos="fade-up"]
+    h2
+      | ニュース一覧
+    p
+      | 学内のニュースを閲覧するにはログインが必要です。
+  .container
+    .row.gy-5
+      .col-12[data-aos="fade-up" data-aos-delay="100"]
+        .news-box
+          h4
+            | 新着ニュース
+          .news-list
+            - resources.each do |resource|
+              a[href="#"]
+                .row.w-100
+                  .col-lg-2
+                    span
+                      = resource.created_at.strftime("%Y/%m/%d")
+                  .col-lg-10
+                    span
+                      = resource.display_author_name
+                    - if resource.is_external
+                      i.bi.bi-box-arrow-up-right.ps-2
+                  .col-12
+                    h4.text-truncate
+                      = resource.title
+            / a[href="#"]
+            /   .row
+            /     .row.col-lg-5.align-items-center
+            /       / .col-lg-1
+            /       /   i.bi.bi-arrow-right-circle
+            /       .col-md-3.col-4
+            /         span
+            /           / | 2024年
+            /           / br
+            /           | 2024/10/01
+            /       .col-md-9.col-8.text-truncate
+            /         span
+            /           | Computer Operating Club 
+            /           / br
+            /           / | 一般告知
+            /     .col-lg-7
+            /       span
+            /         | 
+            / a[href="#"]
+            /   i.bi.bi-arrow-right-circle
+            /   span
+            /     | Web Design
+            / a[href="#"]
+            /   i.bi.bi-arrow-right-circle
+            /   span
+            /     | Product Management
+            / a[href="#"]
+            /   i.bi.bi-arrow-right-circle
+            /   span
+            /     | Graphic Design
+            / a[href="#"]
+            /   i.bi.bi-arrow-right-circle
+            /   span
+            /     | Marketing
+        / .news-box
+        /   h4
+        /     | 全てのニュース
+        /   .download-catalog
+        /     a[href="#"]
+        /       i.bi.bi-filetype-pdf
+        /       span
+        /         | Catalog PDF
+        /     a[href="#"]
+        /       i.bi.bi-file-earmark-word
+        /       span
+        /         | Catalog DOC
+
+          
