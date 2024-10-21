@@ -11,6 +11,11 @@ Rails.application.routes.draw do
   get :sotensai_2024, to: 'static_pages#sotensai_2024'
 
   scope :hub do
+    resources :admin, only: [:index] do
+      collection do
+        get :user_settings
+      end
+    end
     resources :users
   end
   

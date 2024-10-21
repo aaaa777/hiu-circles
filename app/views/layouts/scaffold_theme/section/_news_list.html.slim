@@ -1,9 +1,9 @@
 section#news.news.section
   .container.section-title[data-aos="fade-up"]
     h2
-      | ニュース一覧
+      = title
     p
-      | 学内のニュースを閲覧するにはログインが必要です。
+      = description
   .container
     .row.gy-5
       .col-12[data-aos="fade-up" data-aos-delay="100"]
@@ -12,7 +12,7 @@ section#news.news.section
             | 新着ニュース
           .news-list
             - resources.each do |resource|
-              a[href="#"]
+              a[href=newshub_news_path(resource)]
                 .row.w-100
                   .col-lg-2
                     span
